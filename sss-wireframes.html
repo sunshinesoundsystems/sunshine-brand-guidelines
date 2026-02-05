@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunshine Sound Systems - Site Structure V2</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Space Mono', monospace;
+            background: #0a0a0a;
+            color: #fff;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #FCF766;
+            text-transform: uppercase;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin: 60px 0 30px;
+            color: #FA5281;
+            text-transform: uppercase;
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+            margin: 30px 0 15px;
+            color: #06C0E3;
+        }
+        
+        .intro {
+            background: #1a1a1a;
+            padding: 30px;
+            border-left: 4px solid #FCF766;
+            margin-bottom: 60px;
+        }
+        
+        .page-section {
+            background: #2a1a2a;
+            border: 3px solid #FA5281;
+            padding: 30px;
+            margin: 40px 0;
+        }
+        
+        .page-title {
+            font-size: 1.5rem;
+            color: #FCF766;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #FA5281;
+        }
+        
+        .wireframe {
+            background: #1a1a1a;
+            border: 2px solid #333;
+            padding: 40px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .wireframe-title {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #FA5281;
+            padding: 5px 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .section {
+            border: 2px dashed #444;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .section-label {
+            position: absolute;
+            top: -12px;
+            left: 10px;
+            background: #1a1a1a;
+            padding: 0 10px;
+            color: #06C0E3;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        
+        .content-block {
+            background: #2a2a2a;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid #06C0E3;
+        }
+        
+        .cta-block {
+            background: #FA5281;
+            color: #000;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: center;
+            font-weight: bold;
+            border: none;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .grid-item {
+            background: #2a2a2a;
+            padding: 20px;
+            border: 1px solid #444;
+        }
+        
+        .note {
+            background: #2a1a1a;
+            border-left: 3px solid #FA5281;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        
+        li:before {
+            content: "▸ ";
+            color: #06C0E3;
+            font-weight: bold;
+        }
+        
+        .emphasis {
+            color: #FCF766;
+            font-weight: bold;
+        }
+        
+        .nav-structure {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 40px 0;
+        }
+        
+        .nav-item {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            padding: 20px;
+            border: 2px solid #444;
+            text-align: center;
+        }
+        
+        .nav-item.current-page {
+            border-color: #FCF766;
+        }
+        
+        .nav-item.separate-page {
+            border-color: #FA5281;
+        }
+        
+        .page-legend {
+            display: flex;
+            gap: 30px;
+            margin: 20px 0;
+            padding: 20px;
+            background: #1a1a1a;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .legend-box {
+            width: 30px;
+            height: 30px;
+            border: 2px solid;
+        }
+        
+        .legend-box.homepage { border-color: #FCF766; }
+        .legend-box.separate { border-color: #FA5281; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sunshine Sound Systems<br>Site Structure V2 - ACTUAL BUILD</h1>
+        
+        <div class="intro">
+            <p><strong>UPDATED STRUCTURE:</strong> This reflects what's actually being built. Homepage has Hero + Services sections. Events and Artists are separate pages with their own detailed layouts.</p>
+        </div>
+
+        <div class="page-legend">
+            <div class="legend-item">
+                <div class="legend-box homepage"></div>
+                <span>Homepage Section</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box separate"></div>
+                <span>Separate Page</span>
+            </div>
+        </div>
+
+        <h2>Navigation Structure</h2>
+        
+        <div class="nav-structure">
+            <div class="nav-item current-page">
+                <strong>HOME</strong><br>
+                <small>Landing page</small>
+            </div>
+            <div class="nav-item separate-page">
+                <strong>ARTISTS</strong><br>
+                <small>Separate page</small>
+            </div>
+            <div class="nav-item separate-page">
+                <strong>EVENTS</strong><br>
+                <small>Separate page</small>
+            </div>
+            <div class="nav-item separate-page">
+                <strong>SERVICES</strong><br>
+                <small>Separate page<br>(with booking form)</small>
+            </div>
+            <div class="nav-item separate-page">
+                <strong>BOOKING & CONTACT</strong><br>
+                <small>Button triggers popup<br>+ Links to Services page</small>
+            </div>
+        </div>
+
+        <div class="note">
+            <strong>NAVIGATION NOTE:</strong> "BOOKING & CONTACT" can either (1) trigger popup form immediately OR (2) link to Services page which has the form at bottom. Both work. Popup gives faster access.
+        </div>
+
+        <!-- HOMEPAGE -->
+        <div class="page-section">
+            <div class="page-title">📄 HOMEPAGE (Main Landing)</div>
+
+            <!-- HERO -->
+            <div class="wireframe">
+                <div class="wireframe-title">HERO SECTION (EXISTS)</div>
+                
+                <div class="section">
+                    <div class="section-label">FULL VIEWPORT</div>
+                    <div class="content-block">
+                        <strong>LARGE HEADLINE:</strong><br>
+                        "SUNSHINE SOUND SYSTEMS"
+                    </div>
+                    <div class="content-block">
+                        <strong>TAGLINE:</strong><br>
+                        "WHERE THE EPIC UNFOLDS"
+                    </div>
+                    <div class="content-block">
+                        <strong>BACKGROUND:</strong> Video/image from project files
+                    </div>
+                    <div class="cta-block">
+                        GET A QUOTE → (Opens popup form)
+                    </div>
+                </div>
+                
+                <div class="note">
+                    <strong>STATUS:</strong> ✅ Already built. CTA should trigger popup booking form.
+                </div>
+            </div>
+
+            <!-- CORE MESSAGES (6-BOX GRID) -->
+            <div class="wireframe">
+                <div class="wireframe-title">CORE MESSAGES SECTION</div>
+                
+                <div class="section">
+                    <div class="section-label">6-BOX GRID LAYOUT</div>
+                    
+                    <div class="content-block">
+                        <strong>SECTION HEADING:</strong><br>
+                        "CORE MESSAGES" or "WHY SUNSHINE"
+                    </div>
+                    
+                    <div class="grid">
+                        <div class="grid-item">
+                            <strong>SOUND THAT HITS DIFFERENT</strong><br>
+                            Crisp highs, punchy mids, and bass that moves through your bones. We bring pro-level sound that makes every beat count.
+                        </div>
+                        <div class="grid-item">
+                            <strong>DJS WHO GET IT</strong><br>
+                            We don't just press play. We curate, mix, and create moments that keep people dancing till the last track drops.
+                        </div>
+                        <div class="grid-item">
+                            <strong>CUSTOM-BUILT FOR YOU</strong><br>
+                            No cookie-cutter playlists. We fine-tune the sound and the setlist to fit your crowd, your energy, your vision.
+                        </div>
+                        <div class="grid-item">
+                            <strong>ANY SIZE, ANY VIBE</strong><br>
+                            From intimate rooftop parties to massive festival stages, we scale up (or down) to fit the scene.
+                        </div>
+                        <div class="grid-item">
+                            <strong>ZERO STRESS EXECUTION</strong><br>
+                            We handle the setup, soundcheck, and smooth execution—so all you have to do is enjoy the ride.
+                        </div>
+                        <div class="grid-item">
+                            <strong>MORE THAN MUSIC</strong><br>
+                            We bring lighting, visuals, and atmosphere. The right sound with the right vibe creates magic.
+                        </div>
+                    </div>
+                    
+                    <div class="cta-block">
+                        EXPLORE OUR SERVICES → (Links to Services page)
+                    </div>
+                </div>
+                
+                <div class="note">
+                    <strong>STATUS:</strong> ✅ Already exists with this content. Keep as is. CTA links to full Services page.
+                </div>
+            </div>
+
+            <!-- EVENTS TEASER -->
+            <div class="wireframe">
+                <div class="wireframe-title">EVENTS TEASER (OPTIONAL)</div>
+                
+                <div class="section">
+                    <div class="section-label">FEATURED EVENTS PREVIEW</div>
+                    
+                    <div class="content-block">
+                        <strong>SECTION HEADING:</strong><br>
+                        "WHAT'S COMING UP"
+                    </div>
+                    
+                    <div class="grid">
+                        <div class="grid-item">
+                            <strong>Featured Event 1</strong><br>
+                            Image + Date + Title<br>
+                            → Links to full Events page
+                        </div>
+                        <div class="grid-item">
+                            <strong>Featured Event 2</strong><br>
+                            Image + Date + Title<br>
+                            → Links to full Events page
+                        </div>
+                        <div class="grid-item">
+                            <strong>Featured Event 3</strong><br>
+                            Image + Date + Title<br>
+                            → Links to full Events page
+                        </div>
+                    </div>
+                    
+                    <div class="cta-block">
+                        SEE ALL EVENTS →
+                    </div>
+                </div>
+                
+                <div class="note">
+                    <strong>OPTIONAL:</strong> If you want to show events on homepage, this is how. Otherwise, just have "Events" in nav link directly to Events page.
+                </div>
+            </div>
+
+            <!-- ABOUT SECTION -->
+            <div class="wireframe">
+                <div class="wireframe-title">ABOUT SECTION</div>
+                
+                <div class="section">
+                    <div class="section-label">CENTERED LAYOUT</div>
+                    
+                    <div class="content-block">
+                        <strong>SECTION HEADING:</strong><br>
+                        "ABOUT SUNSHINE SOUND SYSTEMS"
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>ABOUT COPY (4-6 paragraphs):</strong><br>
+                        <br>
+                        Founded by Ned Thomas and DJ DanCat, Sunshine Sound Systems was born from a simple mission: bring Ibizan vibes to the Costa Blanca.
+                        <br><br>
+                        We're more than a sound company—we're vibe architects. From sunrise sessions on remote beaches to underground warehouse raves, we deliver state-of-the-art audio experiences paired with DJs who read the crowd and create moments.
+                        <br><br>
+                        Whether it's an intimate rooftop gathering or a multi-stage festival, we bring the same level of passion, precision-engineered sound, and unshakeable energy to every event.
+                        <br><br>
+                        We believe in barefoot dancing, seamless mixes, and music that moves through your bones. We obsess over sound quality, partner with the best in the industry, and handle everything from setup to soundcheck—so you can focus on what matters: the experience.
+                        <br><br>
+                        From beach bashes to secret afterparties, we're here to spread sunshine through sound.
+                        <br><br>
+                        <strong>Let's get this party started.</strong>
+                    </div>
+                    
+                    <div class="cta-block">
+                        WORK WITH US → (Opens popup form)
+                    </div>
+                </div>
+                
+                <div class="note">
+                    <strong>STATUS:</strong> Copy ready. CTA opens popup booking form.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- EVENTS PAGE -->
+        <div class="page-section">
+            <div class="page-title">📄 EVENTS PAGE (Separate)</div>
+
+            <div class="wireframe">
+                <div class="wireframe-title">EVENTS CALENDAR VIEW</div>
+                
+                <div class="section">
+                    <div class="section-label">MAIN EVENTS PAGE</div>
+                    
+                    <div class="content-block">
+                        <strong>HEADING:</strong><br>
+                        "WHAT'S GOING ON"
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>SUBHEAD:</strong><br>
+                        "All shows"
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>CALENDAR VIEW:</strong><br>
+                        ✅ Already built in Wix Events<br>
+                        Shows: Sonic Fusion, Sunrise Sessions, Sunshine After Dark, Bassment Chronicles, Solar Beats Festival
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>EVENT CARDS:</strong><br>
+                        Each event shows date, time, title, click for details
+                    </div>
+                </div>
+                
+                <div class="note">
+                    <strong>STATUS:</strong> ✅ Structure built. Events are managed in Wix backend. See Content Document for event description templates.
+                </div>
+            </div>
+
+            <div class="wireframe">
+                <div class="wireframe-title">INDIVIDUAL EVENT DETAIL PAGE</div>
+                
+                <div class="section">
+                    <div class="section-label">EVENT LANDING PAGE (Example: Solar Beats Festival)</div>
+                    
+                    <div class="content-block">
+                        <strong>HERO:</strong><br>
+                        - Event title<br>
+                        - Date/time/location<br>
+                        - Hero image<br>
+                        - "BUY TICKETS" CTA
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>TIME & LOCATION:</strong><br>
+                        Detailed venue info, date/time range
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>ABOUT THE EVENT:</strong><br>
+                        4-8 paragraphs describing the event<br>
+                        [See Content Document for structure/templates]
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>AUDIO PREVIEW:</strong><br>
+                        Embedded audio player (optional)
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>PHOTO GALLERY:</strong><br>
+                        Grid of event photos
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>SCHEDULE:</strong><br>
+                        Time-based schedule showing:<br>
+                        - Gates Open<br>
+                        - Opening Sessions<br>
+                        - Stage Worlds Come Online<br>
+                        - Nightfall Sets<br>
+                        - etc.
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>TICKETS SECTION:</strong><br>
+                        - Ticket types (General Admission, VIP, etc.)<br>
+                        - Prices<br>
+                        - Quantity selectors<br>
+                        - "GET TICKETS" checkout
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>SHARE:</strong><br>
+                        Social sharing buttons
+                    </div>
+                </div>
+                
+                <div class="note">
+                    <strong>STATUS:</strong> ✅ Structure built. Examples exist (Solar Beats Festival, Bassment Chronicles). Content templates in Content Document.
+                </div>
+            </div>
+        </div>
+
+        <!-- ARTISTS PAGE -->
+        <div class="page-section">
+            <div class="page-title">📄 ARTISTS PAGE (Separate)</div>
+
+            <div class="wireframe">
+                <div class="wireframe-title">DJ ROSTER PAGE</div>
+                
+                <div class="section">
+                    <div class="section-label">ARTISTS LISTING</div>
+                    
+                    <div class="content-block">
+                        <strong>PAGE LAYOUT:</strong><br>
+                        Vertical scroll with repeating DJ profile cards
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>EACH DJ PROFILE INCLUDES:</strong>
+                        <ul>
+                            <li>DJ Photo (large, prominent)</li>
+                            <li>DJ Name</li>
+                            <li>Bio (3-5 paragraphs)</li>
+                            <li>Genres</li>
+                            <li>Notable achievements/highlights</li>
+                            <li>Social links (optional)</li>
+                            <li>Audio sample (optional)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>CURRENT PLACEHOLDERS:</strong><br>
+                        "Artist Name" repeated 4 times with placeholder text
+                    </div>
+                </div>
+                
+                <div class="note">
+                    <strong>CONTENT NEEDED:</strong> Actual DJ bios, photos, genres for:<br>
+                    - DJ DanCat<br>
+                    - Martin Harmony<br>
+                    - [Additional DJs]<br>
+                    <br>
+                    See Content Document for bio templates and structure.
+                </div>
+            </div>
+        </div>
+
+        <!-- SERVICES & BOOKING PAGE -->
+        <div class="page-section">
+            <div class="page-title">📄 SERVICES & BOOKING PAGE (Separate - Combined)</div>
+
+            <!-- PAGE HERO -->
+            <div class="wireframe">
+                <div class="wireframe-title">SERVICES PAGE HERO</div>
+                
+                <div class="section">
+                    <div class="section-label">PAGE HEADER</div>
+                    
+                    <div class="content-block">
+                        <strong>HEADLINE:</strong><br>
+                        "WHAT WE DO"
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>SUBHEAD:</strong><br>
+                        "From sound systems to full event production—we bring the complete experience."
+                    </div>
+                </div>
+                
+                <div class="note">
+                    <strong>PURPOSE:</strong> This page expands on the 6 core messages from homepage with more detail.
+                </div>
+            </div>
+
+            <!-- SERVICES SECTION 1 -->
+            <div class="wireframe">
+                <div class="wireframe-title">SERVICE 1: SOUND & EXPERIENCE</div>
+                
+                <div class="section">
+                    <div class="section-label">TWO-COLUMN LAYOUT</div>
+                    
+                    <div class="content-block">
+                        <strong>LEFT COLUMN:</strong> Image/visual
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>RIGHT COLUMN - HEADLINE:</strong><br>
+                        "SOUND & EXPERIENCE"
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>RIGHT COLUMN - BODY COPY:</strong><br>
+                        [See Content Document]<br>
+                        Expanded detail on: Sound That Hits Different + More Than Music
+                    </div>
+                </div>
+            </div>
+
+            <!-- SERVICES SECTION 2 -->
+            <div class="wireframe">
+                <div class="wireframe-title">SERVICE 2: THE SUNSHINE APPROACH</div>
+                
+                <div class="section">
+                    <div class="section-label">TWO-COLUMN LAYOUT (REVERSED)</div>
+                    
+                    <div class="content-block">
+                        <strong>LEFT COLUMN - HEADLINE:</strong><br>
+                        "THE SUNSHINE APPROACH"
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>LEFT COLUMN - BODY COPY:</strong><br>
+                        [See Content Document]<br>
+                        Expanded detail on: DJs Who Get It + Custom-Built For You
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>RIGHT COLUMN:</strong> Image/visual
+                    </div>
+                </div>
+            </div>
+
+            <!-- SERVICES SECTION 3 -->
+            <div class="wireframe">
+                <div class="wireframe-title">SERVICE 3: SEAMLESS DELIVERY</div>
+                
+                <div class="section">
+                    <div class="section-label">TWO-COLUMN LAYOUT</div>
+                    
+                    <div class="content-block">
+                        <strong>LEFT COLUMN:</strong> Image/visual
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>RIGHT COLUMN - HEADLINE:</strong><br>
+                        "SEAMLESS DELIVERY"
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>RIGHT COLUMN - BODY COPY:</strong><br>
+                        [See Content Document]<br>
+                        Expanded detail on: Any Size, Any Vibe + Zero Stress Execution
+                    </div>
+                </div>
+            </div>
+
+            <!-- WHAT WE BRING SECTION -->
+            <div class="wireframe">
+                <div class="wireframe-title">WHAT WE BRING</div>
+                
+                <div class="section">
+                    <div class="section-label">SERVICE OFFERINGS GRID</div>
+                    
+                    <div class="content-block">
+                        <strong>SECTION HEADING:</strong><br>
+                        "WHAT WE BRING TO THE PARTY"
+                    </div>
+                    
+                    <div class="grid">
+                        <div class="grid-item">
+                            <strong>🎧 LIVE DJ SETS</strong><br>
+                            Multi-genre, high-energy, fully customized
+                        </div>
+                        <div class="grid-item">
+                            <strong>🔊 SOUND SYSTEMS</strong><br>
+                            Top-tier speakers, subs, mixers
+                        </div>
+                        <div class="grid-item">
+                            <strong>⚡ EVENT PRODUCTION</strong><br>
+                            Full sound design, setup, tech support
+                        </div>
+                        <div class="grid-item">
+                            <strong>💡 LIGHTING & VISUALS</strong><br>
+                            LED setups, light shows, atmosphere
+                        </div>
+                        <div class="grid-item">
+                            <strong>🎵 SOUND RENTALS</strong><br>
+                            Equipment rental for all event sizes
+                        </div>
+                        <div class="grid-item">
+                            <strong>🌙 AFTERPARTIES</strong><br>
+                            Underground experiences, pop-up sets
+                        </div>
+                    </div>
+                    
+                    <div class="cta-block">
+                        GET A QUOTE → (Scrolls to booking form below)
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOOKING FORM SECTION -->
+            <div class="wireframe">
+                <div class="wireframe-title">BOOKING / CONTACT FORM</div>
+                
+                <div class="section">
+                    <div class="section-label">QUOTE REQUEST FORM</div>
+                    
+                    <div class="content-block">
+                        <strong>HEADING:</strong><br>
+                        "READY TO TURN UP THE SOUND?"
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>SUBHEAD:</strong><br>
+                        "Let's build something unforgettable. Fill out the form and we'll get back to you within 24 hours."
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>FORM FIELDS:</strong>
+                        <ul>
+                            <li>Name (required)</li>
+                            <li>Email (required)</li>
+                            <li>Phone (optional)</li>
+                            <li>Event Type (dropdown)</li>
+                            <li>Event Date (date picker)</li>
+                            <li>Location</li>
+                            <li>Guest Count</li>
+                            <li>Services Needed (checkboxes)</li>
+                            <li>Additional Details (textarea)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cta-block">
+                        SUBMIT REQUEST →
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>ALTERNATIVE CONTACT:</strong><br>
+                        Email: sunshinesoundsystems@gmail.com<br>
+                        WhatsApp: [number]<br>
+                        Instagram: @sunshinesoundsystems<br>
+                        Facebook: /sunshinesoundsystems
+                    </div>
+                </div>
+                
+                <div class="note">
+                    <strong>FORM CONFIRMATION MESSAGE:</strong><br>
+                    "Thanks for reaching out! We've received your request and we'll get back to you within 24 hours. In the meantime, check out our upcoming events or follow us on Instagram. Let's get this party started."
+                </div>
+            </div>
+
+        </div>
+
+        <!-- POPUP BOOKING FORM -->
+        <div class="page-section">
+            <div class="page-title">💬 POPUP BOOKING FORM (Triggered from CTAs)</div>
+
+            <div class="wireframe">
+                <div class="wireframe-title">POPUP/MODAL FORM</div>
+                
+                <div class="section">
+                    <div class="section-label">MODAL OVERLAY</div>
+                    
+                    <div class="content-block">
+                        <strong>TRIGGER POINTS:</strong>
+                        <ul>
+                            <li>Hero CTA: "GET A QUOTE"</li>
+                            <li>About section CTA: "WORK WITH US"</li>
+                            <li>Nav button: "BOOKING & CONTACT"</li>
+                            <li>Any "Book Now" buttons throughout site</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>POPUP HEADER:</strong><br>
+                        "LET'S MAKE IT HAPPEN"
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>FORM FIELDS (SIMPLIFIED FOR POPUP):</strong>
+                        <ul>
+                            <li>Name (required)</li>
+                            <li>Email (required)</li>
+                            <li>Phone (optional)</li>
+                            <li>Event Type (dropdown)</li>
+                            <li>Event Date (date picker)</li>
+                            <li>Message (textarea - "Tell us about your event")</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="cta-block">
+                        SEND REQUEST →
+                    </div>
+                    
+                    <div class="content-block">
+                        <strong>BELOW FORM:</strong><br>
+                        <small>Or email us directly: sunshinesoundsystems@gmail.com</small>
+                    </div>
+                </div>
+                
+                <div class="note">
+                    <strong>DESIGN NOTE:</strong> Popup form is shorter/simpler than full page form. Just collects essential info to start conversation. Success message same as full form.
+                </div>
+            </div>
+
+        </div>
+
+        <h2>Site Map Summary</h2>
+        
+        <div class="content-block">
+            <strong>HOMEPAGE:</strong>
+            <ul>
+                <li>Hero (exists - CTA opens popup form)</li>
+                <li>Core Messages 6-box grid (exists - links to Services page)</li>
+                <li>About (copy ready - CTA opens popup form)</li>
+                <li>Optional: Events teaser</li>
+            </ul>
+        </div>
+        
+        <div class="content-block">
+            <strong>SERVICES & BOOKING PAGE (Separate - Combined):</strong>
+            <ul>
+                <li>Page hero</li>
+                <li>3 detailed service sections (expanded from core messages)</li>
+                <li>"What We Bring" offerings grid</li>
+                <li>Full booking form at bottom</li>
+            </ul>
+        </div>
+        
+        <div class="content-block">
+            <strong>POPUP BOOKING FORM (Triggered from CTAs):</strong>
+            <ul>
+                <li>Simplified form (name, email, phone, event type, date, message)</li>
+                <li>Triggers from: Hero CTA, About CTA, Nav button, "Book Now" buttons</li>
+            </ul>
+        </div>
+        
+        <div class="content-block">
+            <strong>EVENTS PAGE (Separate):</strong>
+            <ul>
+                <li>Calendar view (exists)</li>
+                <li>Individual event detail pages (structure exists, needs content templates)</li>
+            </ul>
+        </div>
+        
+        <div class="content-block">
+            <strong>ARTISTS PAGE (Separate):</strong>
+            <ul>
+                <li>DJ roster with repeating profile cards (structure exists, needs actual bios)</li>
+            </ul>
+        </div>
+
+        <h2>Content Deliverables Needed</h2>
+        
+        <div class="note">
+            <strong>1. HOMEPAGE COPY</strong><br>
+            - Hero tagline (done: "Where the Epic Unfolds")<br>
+            - Core messages 6-box grid (done: already has copy)<br>
+            - About section (done: ready to place)
+        </div>
+        
+        <div class="note">
+            <strong>2. SERVICES PAGE COPY</strong><br>
+            - Page hero (headline + subhead)<br>
+            - Section 1: "Sound & Experience" (expanded detail)<br>
+            - Section 2: "The Sunshine Approach" (expanded detail)<br>
+            - Section 3: "Seamless Delivery" (expanded detail)<br>
+            - "What We Bring" grid descriptions
+        </div>
+        
+        <div class="note">
+            <strong>3. BOOKING FORM COPY</strong><br>
+            - Full page form (headline, subhead, confirmation)<br>
+            - Popup form (headline, simplified version)<br>
+            - Form field labels and options
+        </div>
+        
+        <div class="note">
+            <strong>4. EVENT DESCRIPTION TEMPLATES</strong><br>
+            - Structure/format for event descriptions<br>
+            - Tone guidelines<br>
+            - Example copy (Sunrise Sessions)
+        </div>
+        
+        <div class="note">
+            <strong>5. DJ BIO TEMPLATES</strong><br>
+            - Structure for DJ profiles<br>
+            - Length guidelines<br>
+            - Example bios (DanCat & Martin Harmony)
+        </div>
+
+    </div>
+</body>
+</html>
