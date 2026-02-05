@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunshine Sound Systems – Brand Guidelines v1.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Anton+SC&family=Avenir:wght@300;400;500;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root {
+            --icetrine:#FCF766;
+            --areo:#06C0E3;
+            --non-photo-blue:#9CECFC;
+            --bright-pink:#FA5281;
+            --black:#000000;
+            --russian-violet:#210B4B;
+            --xanthous:#F8B02A;
+            --flax:#F0E58E;
+            --uranian-blue:#B3E0FF;
+            --argentinian-blue:#6BB3FF;
+            --heading:'Anton', 'Anton SC', sans-serif;
+            --body:'Avenir', 'Avenir Next', sans-serif;
+        }
+        body { font-family:var(--body); background:#000; color:#fff; line-height:1.6; overflow-x:hidden; }
+        
+        /* Anton font rendering optimization - make it bolder to match logo */
+        h1, h2, h3, h4, h5, h6, .st, .sub-head {
+            -webkit-font-smoothing: auto;
+            -moz-osx-font-smoothing: auto;
+            font-weight: 400;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* ── Cover ── */
+        .cover {
+            height:100vh; display:flex; flex-direction:column;
+            align-items:center; justify-content:center;
+            background:#000;
+            color:#fff; position:relative; overflow:hidden;
+            border-bottom:2px solid var(--bright-pink);
+        }
+        .cover::before {
+            content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+            background:radial-gradient(circle at 30% 70%, rgba(250,82,129,0.2) 0%, transparent 50%),
+                       radial-gradient(circle at 70% 30%, rgba(6,192,227,0.2) 0%, transparent 50%);
+            animation:pulse 8s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity:0.8; transform:scale(1); }
+            50% { opacity:1; transform:scale(1.05); }
+        }
+        .cover h1 { 
+            font-family:var(--heading); 
+            font-size:7rem; 
+            font-weight:400; 
+            letter-spacing:-0.05em; 
+            animation:fadeUp 1s ease; 
+            z-index:1;
+            text-transform:uppercase;
+            text-shadow:3px 3px 0 rgba(0,0,0,0.2);
+            color:#FCF766;
+            -webkit-text-stroke: 0.5px #FCF766;
+        }
+        .cover .line { 
+            width:80px; height:3px; 
+            background:var(--icetrine); 
+            margin:2rem auto; 
+            animation:fadeUp 1s .2s ease backwards; 
+            z-index:1;
+            box-shadow:0 0 20px rgba(252,247,102,0.6);
+        }
+        .cover .sub { 
+            font-size:1rem; 
+            letter-spacing:.3em; 
+            text-transform:uppercase; 
+            font-weight:500; 
+            animation:fadeUp 1s .3s ease backwards; 
+            z-index:1;
+        }
+        .cover .ver { 
+            font-size:.75rem; 
+            letter-spacing:.2em; 
+            text-transform:uppercase; 
+            opacity:.8; 
+            margin-top:.8rem; 
+            animation:fadeUp 1s .4s ease backwards; 
+            z-index:1;
+        }
+        .cover-tagline { 
+            position:absolute; 
+            bottom:4rem; 
+            font-family:var(--body); 
+            font-size:1.8rem; 
+            font-style:italic; 
+            opacity:.9; 
+            font-weight:300; 
+            animation:fadeUp 1s .5s ease backwards; 
+            z-index:1;
+            text-shadow:2px 2px 4px rgba(0,0,0,0.3);
+        }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+        /* ── Top Navigation Bar ── */
+        .topnav {
+            position:fixed; top:0; left:0; width:100%; z-index:1000;
+            background:rgba(0,0,0,0.95);
+            backdrop-filter:blur(10px);
+            -webkit-backdrop-filter:blur(10px);
+            border-bottom:2px solid var(--bright-pink);
+        }
+        .topnav-inner {
+            max-width:1400px; margin:0 auto;
+            display:flex; align-items:center;
+            padding:0 2rem; height:56px; gap:2rem;
+        }
+        .topnav-logo {
+            font-family:var(--heading); 
+            font-size:1.3rem; 
+            font-weight:400;
+            color:#fff; 
+            letter-spacing:.05em; 
+            flex-shrink:0;
+            white-space:nowrap;
+            text-transform:uppercase;
+        }
+        .topnav-divider {
+            width:2px; height:24px; 
+            background:var(--icetrine); 
+            flex-shrink:0;
+        }
+        .topnav-links {
+            display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap;
+        }
+        .topnav-link {
+            font-size:.85rem; 
+            color:rgba(255,255,255,0.85); 
+            text-decoration:none;
+            letter-spacing:.08em; 
+            text-transform:uppercase; 
+            font-weight:400;
+            transition:color .3s, transform .3s;
+            cursor:pointer;
+        }
+        .topnav-link:hover {
+            color:#fff;
+            transform:translateY(-2px);
+        }
+        .topnav-link.active {
+            color:#fff;
+            font-weight:500;
+            text-shadow:0 0 10px rgba(255,255,255,0.5);
+        }
+
+        /* ── Sections ── */
+        .section { 
+            min-height:100vh; 
+            padding:8rem 4rem 6rem; 
+            display:flex; 
+            align-items:flex-start; 
+            justify-content:center; 
+            position:relative; 
+        }
+        .section-content { max-width:1200px; width:100%; padding-top:2rem; }
+        .sn { 
+            position:absolute; 
+            top:2.5rem; 
+            left:4rem; 
+            font-size:.75rem; 
+            letter-spacing:.25em; 
+            text-transform:uppercase; 
+            color:var(--bright-pink);
+            font-weight:500;
+        }
+        .st { 
+            font-family:var(--heading); 
+            font-size:4rem; 
+            font-weight:400; 
+            margin-bottom:2.5rem; 
+            line-height:1.1;
+            text-transform:uppercase;
+            color:#FCF766;
+            letter-spacing:-0.05em;
+            -webkit-text-stroke: 0.5px #FCF766;
+        }
+        .lead { 
+            max-width:800px; 
+            font-size:1.15rem; 
+            line-height:2; 
+            margin-bottom:3rem; 
+            font-weight:300; 
+        }
+
+        /* ── Info Box ── */
+        .ib { 
+            padding:2rem 2.5rem; 
+            background:#fff; 
+            border-left:4px solid var(--areo); 
+            border-radius:8px; 
+            margin:2rem 0; 
+        }
+        .ib h4 { 
+            font-family:var(--heading); 
+            font-size:1.4rem; 
+            margin-bottom:.8rem; 
+            font-weight:400; 
+            text-transform:uppercase;
+            color:#06C0E3;
+            letter-spacing:-0.05em;
+        }
+        .ib p, .ib ul { 
+            font-size:.95rem; 
+            color:#333; 
+            line-height:1.9; 
+        }
+        .ib ul { list-style:none; padding:0; }
+        .ib li { 
+            padding:.5rem 0; 
+            border-bottom:1px solid rgba(0,0,0,0.1); 
+        }
+        .ib li:last-child { border-bottom:none; }
+
+        /* ── Two Col ── */
+        .two-col { 
+            display:grid; 
+            grid-template-columns:1fr 1fr; 
+            gap:2.5rem; 
+            margin:2.5rem 0; 
+        }
+        .col-box { 
+            padding:2.5rem; 
+            background:#fff; 
+            border:2px solid var(--non-photo-blue); 
+            border-radius:12px;
+            transition:transform .3s, box-shadow .3s;
+        }
+        .col-box:hover {
+            transform:translateY(-5px);
+            box-shadow:0 15px 40px rgba(6,192,227,0.4);
+        }
+        .col-box h3 { 
+            font-family:var(--heading); 
+            font-size:1.6rem; 
+            font-weight:400; 
+            margin-bottom:1.2rem;
+            text-transform:uppercase;
+            color:#06C0E3;
+            letter-spacing:-0.05em;
+        }
+        .col-box ul { list-style:none; padding:0; }
+        .col-box li { 
+            padding:.7rem 0; 
+            border-bottom:1px solid rgba(0,0,0,0.1); 
+            font-size:.95rem; 
+            line-height:1.7;
+            color:#333;
+        }
+        .col-box li:last-child { border-bottom:none; }
+
+        /* ── Content Grid ── */
+        .content-grid { 
+            display:grid; 
+            grid-template-columns:repeat(3,1fr); 
+            gap:2rem; 
+            margin:2.5rem 0; 
+        }
+        .cc { 
+            padding:2rem; 
+            background:#fff; 
+            border:2px solid var(--icetrine); 
+            border-radius:12px; 
+            transition:transform .3s, box-shadow .3s; 
+        }
+        .cc:hover { 
+            transform:translateY(-5px); 
+            box-shadow:0 15px 40px rgba(252,247,102,0.4); 
+        }
+        .cc h4 { 
+            font-family:var(--heading); 
+            font-size:1.3rem; 
+            font-weight:400; 
+            margin-bottom:.7rem;
+            text-transform:uppercase;
+            color:#06C0E3;
+            letter-spacing:-0.05em;
+        }
+        .cc p { 
+            font-size:.9rem; 
+            color:#333; 
+            line-height:1.7; 
+        }
+        .tag { 
+            display:inline-block; 
+            font-size:.7rem; 
+            letter-spacing:.12em; 
+            text-transform:uppercase; 
+            color:#fff; 
+            background:var(--bright-pink); 
+            padding:.3rem .8rem; 
+            border-radius:20px; 
+            margin-top:1rem; 
+            margin-right:.3rem; 
+        }
+
+        /* ── Table ── */
+        .tbl { 
+            width:100%; 
+            border-collapse:collapse; 
+            margin:2rem 0; 
+            background:#fff; 
+            border:2px solid var(--non-photo-blue); 
+            border-radius:10px; 
+            overflow:hidden; 
+        }
+        .tbl th, .tbl td { 
+            padding:1rem 1.5rem; 
+            text-align:left; 
+            border-bottom:1px solid rgba(0,0,0,0.1); 
+        }
+        .tbl th { 
+            background:#fff; 
+            font-weight:500; 
+            font-size:.85rem; 
+            letter-spacing:.08em; 
+            text-transform:uppercase; 
+            color:#000; 
+        }
+        .tbl td { font-size:.92rem; color:#333; }
+        .tbl tr:last-child td { border-bottom:none; }
+        .tbl code { 
+            font-family:'Courier New',monospace; 
+            font-size:.85rem; 
+            background:rgba(252,247,102,0.2); 
+            padding:.2rem .5rem; 
+            border-radius:4px;
+            color:#000;
+        }
+
+        /* ── Quote ── */
+        .qb { 
+            padding:3rem; 
+            background:#000; border-top:2px solid var(--bright-pink); 
+            color:#fff; 
+            border-radius:12px; 
+            margin:3rem 0; 
+        }
+        .qb p { 
+            font-family:var(--body); 
+            font-size:1.6rem; 
+            font-weight:300; 
+            line-height:1.7; 
+            font-style:italic; 
+        }
+        .qb cite { 
+            display:block; 
+            margin-top:1rem; 
+            font-size:.9rem; 
+            opacity:.85; 
+            letter-spacing:.12em; 
+            font-style:normal; 
+        }
+
+        /* ── Color Swatches ── */
+        .color-grid {
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+            gap:2rem;
+            margin:2.5rem 0;
+        }
+        .color-swatch {
+            text-align:center;
+        }
+        .color-preview {
+            height:150px;
+            border-radius:12px;
+            margin-bottom:1rem;
+            box-shadow:0 10px 30px rgba(0,0,0,0.15);
+            transition:transform .3s;
+        }
+        .color-preview:hover {
+            transform:scale(1.05);
+        }
+        .color-name {
+            font-family:var(--heading);
+            font-size:1.1rem;
+            margin-bottom:.5rem;
+            text-transform:uppercase;
+        }
+        .color-codes {
+            font-size:.85rem;
+            color:#666;
+            line-height:1.8;
+        }
+
+        /* ── Sub heading ── */
+        .sub-head { 
+            font-family:var(--heading); 
+            font-size:2.5rem; 
+            margin:4rem 0 2rem; 
+            font-weight:400;
+            text-transform:uppercase;
+            color:#FCF766;
+            letter-spacing:-0.05em;
+            -webkit-text-stroke: 0.5px #FCF766;
+        }
+
+        /* ── Utility ── */
+        .mt2 { margin-top:2rem; }
+        .mt3 { margin-top:3rem; }
+        .green-box { 
+            background:#fff; 
+            border-left-color:var(--areo) !important; 
+        }
+        .pink-box { 
+            background:#fff; 
+            border-left-color:var(--bright-pink) !important; 
+        }
+
+        /* Responsive */
+        @media(max-width:1024px){ 
+            .two-col, .content-grid, .color-grid { grid-template-columns:1fr; } 
+        }
+        @media(max-width:768px){ 
+            .cover h1 { font-size:3.5rem; } 
+            .st { font-size:2.5rem; } 
+            .section { padding:5rem 2rem 4rem; } 
+            .topnav-links { display:none; }
+        }
+
+        /* Background variations */
+        .bg-gradient-1 {
+            background:linear-gradient(135deg, rgba(252,247,102,0.08) 0%, rgba(6,192,227,0.08) 100%);
+        }
+        .bg-gradient-2 {
+            background:linear-gradient(135deg, rgba(250,82,129,0.08) 0%, rgba(156,236,252,0.08) 100%);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════
+     TOP NAVIGATION
+     ════════════════════════════════════════════════ -->
+<nav class="topnav">
+    <div class="topnav-inner">
+        <div class="topnav-logo">Sunshine Sound Systems</div>
+        <div class="topnav-divider"></div>
+        <div class="topnav-links">
+            <a class="topnav-link" data-target="intro">Introduction</a>
+            <a class="topnav-link" data-target="identity">Brand Identity</a>
+            <a class="topnav-link" data-target="logo">Logo & Assets</a>
+            <a class="topnav-link" data-target="voice">Voice & Tone</a>
+            <a class="topnav-link" data-target="colors">Colors</a>
+            <a class="topnav-link" data-target="typography">Typography</a>
+            <a class="topnav-link" data-target="imagery">Imagery</a>
+            <a class="topnav-link" data-target="messaging">Messaging</a>
+            <a class="topnav-link" data-target="events">Events</a>
+            <a class="topnav-link" data-target="digital">Digital</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════
+     COVER
+     ════════════════════════════════════════════════ -->
+<section class="cover">
+    <h1>SUNSHINE SOUND SYSTEMS</h1>
+    <div class="line"></div>
+    <div class="sub">Brand Guidelines</div>
+    <div class="ver">Version 1.0 — February 2025</div>
+    <div class="cover-tagline">Where Epic Unfolds</div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     01 — INTRODUCTION
+     ════════════════════════════════════════════════ -->
+<section class="section" id="intro" style="background:#000;">
+    <div class="sn">01 — Introduction</div>
+    <div class="section-content">
+        <h2 class="st">Who We Are</h2>
+        
+        <p class="lead">
+            <strong>Sunshine Sound Systems</strong> is a premier sound equipment and DJ service dedicated to creating unforgettable parties and festivals. With state-of-the-art audio technology and a team of professional DJs, we ensure crystal-clear sound and an electrifying atmosphere for any event.
+        </p>
+
+        <p class="lead">
+            Whether you're hosting an intimate gathering or a large-scale festival, Sunshine Sound Systems delivers exceptional audio experiences that keep the energy high and the crowd dancing. We bring passion for music, top-tier equipment, and unparalleled service to every event.
+        </p>
+
+        <div class="qb">
+            <p>We bring the beats. You bring the vibes. Together, we create moments that people talk about long after the night ends.</p>
+            <cite>— Our Promise</cite>
+        </div>
+
+        <h3 class="sub-head">What We Do</h3>
+
+        <div class="two-col">
+            <div class="col-box">
+                <h3>Event Services</h3>
+                <ul>
+                    <li>Beach parties and sunset sessions</li>
+                    <li>Underground raves and warehouse events</li>
+                    <li>Festival stages (multi-day events)</li>
+                    <li>Private celebrations and corporate events</li>
+                    <li>Club nights and rooftop parties</li>
+                    <li>Sunrise Sessions (our signature event series)</li>
+                </ul>
+            </div>
+            <div class="col-box">
+                <h3>Technical Offerings</h3>
+                <ul>
+                    <li>Live DJ sets (all genres covered)</li>
+                    <li>Top-tier sound systems and equipment</li>
+                    <li>Seamless event production and setup</li>
+                    <li>Lighting and visual effects</li>
+                    <li>Vinyl, digital, and hybrid DJ setups</li>
+                    <li>Full event sound production and design</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="ib mt3">
+            <h4>Our Mission</h4>
+            <p>To create transformative audio experiences that bring people together, elevate the moment, and spread sunshine through sound. We're not just providing a service—we're curating unforgettable experiences where music becomes the soul of the party.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     02 — BRAND IDENTITY
+     ════════════════════════════════════════════════ -->
+<section class="section bg-gradient-1" id="identity">
+    <div class="sn">02 — Brand Identity</div>
+    <div class="section-content">
+        <h2 class="st">Brand Essence</h2>
+        
+        <p class="lead">
+            Sunshine Sound Systems embodies the intersection of <strong>high-energy celebration</strong> and <strong>technical excellence</strong>. Our brand is vibrant, confident, and effortlessly cool—reflecting both the sunrise and the night, the beach and the warehouse, the intimate and the massive.
+        </p>
+
+        <h3 class="sub-head">Brand Pillars</h3>
+
+        <div class="content-grid">
+            <div class="cc">
+                <h4>Energetic</h4>
+                <p>We bring big energy, deep bass, and infectious vibes. Our presence is electrifying, our sound is powerful, and our events pulse with life.</p>
+                <span class="tag">High-Energy</span>
+                <span class="tag">Dynamic</span>
+            </div>
+            <div class="cc">
+                <h4>Professional</h4>
+                <p>State-of-the-art equipment meets flawless execution. We handle the setup, soundcheck, and smooth operation—zero stress, all energy.</p>
+                <span class="tag">Expert</span>
+                <span class="tag">Reliable</span>
+            </div>
+            <div class="cc">
+                <h4>Vibrant</h4>
+                <p>Our visual identity bursts with sunset colors—bright pinks, electric blues, warm yellows. We're sunshine and neon, beach and festival all in one.</p>
+                <span class="tag">Colorful</span>
+                <span class="tag">Bold</span>
+            </div>
+            <div class="cc">
+                <h4>Inclusive</h4>
+                <p>From intimate rooftop parties to massive festival stages, we create spaces where everyone belongs. Good vibes, good people, great music.</p>
+                <span class="tag">Community</span>
+                <span class="tag">Welcoming</span>
+            </div>
+            <div class="cc">
+                <h4>Transformative</h4>
+                <p>We don't just play music—we create moments. DJs who read the crowd, sound that moves through your bones, experiences that stick with you.</p>
+                <span class="tag">Memorable</span>
+                <span class="tag">Immersive</span>
+            </div>
+            <div class="cc">
+                <h4>Passionate</h4>
+                <p>Music is our language. We obsess over every detail—from speaker placement to song selection—because we genuinely love what we do.</p>
+                <span class="tag">Dedicated</span>
+                <span class="tag">Authentic</span>
+            </div>
+        </div>
+
+        <div class="ib mt3 pink-box">
+            <h4>Tagline Philosophy</h4>
+            <p><strong>"Where Epic Unfolds"</strong> captures our essence: we're the stage where unforgettable moments happen. Every event is an epic in the making—we provide the sound, the energy, and the space for magic to unfold.</p>
+            <p style="margin-top:1rem;"><strong>"Spreading Sunshine Through Sound"</strong> reflects our mission: bringing light, warmth, and joy through music. Whether it's a sunrise session or an all-night rave, we illuminate the moment with sound.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     03 — LOGO & VISUAL ASSETS
+     ════════════════════════════════════════════════ -->
+<section class="section bg-gradient-1" id="logo">
+    <div class="sn">03 — Logo & Assets</div>
+    <div class="section-content">
+        <h2 class="st">Logo Guidelines</h2>
+        
+        <p class="lead">
+            Our logo embodies the energy and vibration of Sunshine Sound Systems. It should always be presented clearly and consistently across all touchpoints.
+        </p>
+
+        <div class="ib mt3" style="min-height:300px; display:flex; align-items:center; justify-content:center; background:#f5f5f5; border:2px dashed #ddd;">
+            <p style="font-size:1.2rem; color:#999; font-style:italic;">[ LOGO PLACEMENT AREA ]<br>Add downloaded logo files here</p>
+        </div>
+
+        <h3 class="sub-head">Logo Usage Rules</h3>
+
+        <div class="two-col">
+            <div class="col-box">
+                <h3>Clear Space</h3>
+                <ul>
+                    <li>Maintain minimum clear space around logo</li>
+                    <li>Clear space = height of the logo element</li>
+                    <li>No other elements within this protected zone</li>
+                    <li>Ensures logo always has breathing room</li>
+                </ul>
+            </div>
+            <div class="col-box">
+                <h3>Minimum Size</h3>
+                <ul>
+                    <li>Digital: 120px width minimum</li>
+                    <li>Print: 1 inch width minimum</li>
+                    <li>Never scale smaller than minimum</li>
+                    <li>Ensures legibility at all sizes</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="two-col mt3">
+            <div class="col-box">
+                <h3>Approved Backgrounds</h3>
+                <ul>
+                    <li>Primary: Black or White backgrounds</li>
+                    <li>Secondary: Brand color backgrounds (test for contrast)</li>
+                    <li>Always ensure sufficient contrast</li>
+                    <li>Avoid busy photographic backgrounds</li>
+                </ul>
+            </div>
+            <div class="col-box">
+                <h3>What Not To Do</h3>
+                <ul>
+                    <li>❌ Don't stretch or distort proportions</li>
+                    <li>❌ Don't rotate at angles</li>
+                    <li>❌ Don't change brand colors</li>
+                    <li>❌ Don't add effects (shadows, glows, 3D)</li>
+                    <li>❌ Don't place on low-contrast backgrounds</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 class="sub-head">Visual Assets Library</h3>
+
+        <div class="ib mt3" style="min-height:400px; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#f5f5f5; border:2px dashed #ddd; gap:2rem;">
+            <p style="font-size:1.2rem; color:#999; font-style:italic;">[ BRAND IMAGERY SHOWCASE ]</p>
+            <p style="font-size:1rem; color:#999; max-width:600px; text-align:center;">Add reference images showing your visual style:<br>Sunset/beach scenes, vinyl records, turntables, crowd energy, festival moments, neon aesthetics</p>
+        </div>
+
+        <div class="ib mt3">
+            <h4>Icon & Pattern Library</h4>
+            <p style="margin-bottom:1rem;">Space for brand patterns, textures, and iconography that complement the main logo:</p>
+            <div style="min-height:200px; display:flex; align-items:center; justify-content:center; background:#f5f5f5; border:2px dashed #ddd; margin-top:1rem;">
+                <p style="font-size:1rem; color:#999; font-style:italic;">[ ICON SET & PATTERNS ]</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     04 — VOICE & TONE
+     ════════════════════════════════════════════════ -->
+<section class="section" id="voice" style="background:#000;">
+    <div class="sn">04 — Voice & Tone</div>
+    <div class="section-content">
+        <h2 class="st">How We Speak</h2>
+        
+        <p class="lead">
+            Our voice is <strong>confident, energetic, and approachable</strong>. We speak like your friend who always knows where the best party is—knowledgeable but never pretentious, professional but never stuffy. We use language that's alive, direct, and full of personality.
+        </p>
+
+        <h3 class="sub-head">Voice Characteristics</h3>
+
+        <div class="two-col">
+            <div class="col-box">
+                <h3>We Are</h3>
+                <ul>
+                    <li><strong>Energetic:</strong> "Turn up the volume!" not "Increase audio levels"</li>
+                    <li><strong>Direct:</strong> "Let's make magic together" not "We facilitate event experiences"</li>
+                    <li><strong>Confident:</strong> "Sound that hits different" not "Quality audio solutions"</li>
+                    <li><strong>Warm:</strong> "Your sound crew" not "Service providers"</li>
+                    <li><strong>Playful:</strong> "Big fun, any size" not "Scalable event solutions"</li>
+                    <li><strong>Authentic:</strong> "We obsess over sound" not "Committed to excellence"</li>
+                </ul>
+            </div>
+            <div class="col-box">
+                <h3>We Avoid</h3>
+                <ul>
+                    <li><strong>Corporate jargon:</strong> "Solutions," "leverage," "synergy"</li>
+                    <li><strong>Overly technical:</strong> Unless explaining equipment specs</li>
+                    <li><strong>Passive voice:</strong> "Experiences are created" → "We create experiences"</li>
+                    <li><strong>Generic claims:</strong> "Best in class" → Show, don't tell</li>
+                    <li><strong>Stiff formality:</strong> Write like you speak</li>
+                    <li><strong>Tired clichés:</strong> "Taking it to the next level"</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 class="sub-head">Tone Variations</h3>
+
+        <table class="tbl">
+            <thead>
+                <tr>
+                    <th>Context</th>
+                    <th>Tone</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Website Hero</td>
+                    <td>Bold, Confident</td>
+                    <td>"We bring the beats. You bring the vibes."</td>
+                </tr>
+                <tr>
+                    <td>Event Promotion</td>
+                    <td>Exciting, Inviting</td>
+                    <td>"Join us at the edge of morning for music that moves."</td>
+                </tr>
+                <tr>
+                    <td>Service Description</td>
+                    <td>Clear, Professional</td>
+                    <td>"Top-tier sound gear: speakers, subs, and mixers that make every beat shine."</td>
+                </tr>
+                <tr>
+                    <td>Social Media</td>
+                    <td>Casual, Energetic</td>
+                    <td>"Last night was UNREAL. Thank you for bringing the energy! 🔥"</td>
+                </tr>
+                <tr>
+                    <td>Email Confirmation</td>
+                    <td>Friendly, Reassuring</td>
+                    <td>"You're in! See you on the dancefloor."</td>
+                </tr>
+                <tr>
+                    <td>Policy/Terms</td>
+                    <td>Clear, Fair</td>
+                    <td>"Cancel 7+ days before = full refund. Simple as that."</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="ib mt3 green-box">
+            <h4>Language Patterns</h4>
+            <p><strong>Use active, sensory language:</strong></p>
+            <ul style="margin-top:.8rem;">
+                <li>"Bass that moves through your bones" (not "powerful low-frequency audio")</li>
+                <li>"Barefoot dancing" (not "casual dress code")</li>
+                <li>"Sound that fills the space perfectly" (not "acoustically optimized")</li>
+                <li>"Let the music do the rest" (not "comprehensive entertainment")</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     04 — COLOR SYSTEM
+     ════════════════════════════════════════════════ -->
+<section class="section bg-gradient-2" id="colors">
+    <div class="sn">05 — Colors</div>
+    <div class="section-content">
+        <h2 class="st">Color Palette</h2>
+        
+        <p class="lead">
+            Our color palette captures the vibrant energy of <strong>sunrises and sunsets, beach parties and festival lights</strong>. Think electric blues meeting warm yellows, hot pinks dancing with cool turquoise—colors that pulse with life and energy.
+        </p>
+
+        <h3 class="sub-head">Primary Colors</h3>
+
+        <div class="color-grid">
+            <div class="color-swatch">
+                <div class="color-preview" style="background:#FCF766;"></div>
+                <div class="color-name">Icetrine</div>
+                <div class="color-codes">
+                    HEX: #FCF766<br>
+                    RGB: 252, 247, 102<br>
+                    CMYK: 0, 2, 60, 1
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-preview" style="background:#06C0E3;"></div>
+                <div class="color-name">Areo</div>
+                <div class="color-codes">
+                    HEX: #06C0E3<br>
+                    RGB: 6, 192, 227<br>
+                    CMYK: 97, 15, 0, 11
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-preview" style="background:#9CECFC;"></div>
+                <div class="color-name">Non Photo Blue</div>
+                <div class="color-codes">
+                    HEX: #9CECFC<br>
+                    RGB: 156, 236, 252<br>
+                    CMYK: 38, 6, 0, 1
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-preview" style="background:#FA5281;"></div>
+                <div class="color-name">Bright Pink</div>
+                <div class="color-codes">
+                    HEX: #FA5281<br>
+                    RGB: 250, 82, 129<br>
+                    CMYK: 0, 67, 48, 2
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-preview" style="background:#000000; border:1px solid #ddd;"></div>
+                <div class="color-name">Black</div>
+                <div class="color-codes">
+                    HEX: #000000<br>
+                    RGB: 0, 0, 0<br>
+                    CMYK: 0, 0, 0, 100
+                </div>
+            </div>
+        </div>
+
+        <h3 class="sub-head">Extended Palette</h3>
+
+        <div class="color-grid">
+            <div class="color-swatch">
+                <div class="color-preview" style="background:#210B4B;"></div>
+                <div class="color-name">Russian Violet</div>
+                <div class="color-codes">
+                    HEX: #210B4B<br>
+                    HSL: 261, 74%, 17%
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-preview" style="background:#F8B02A;"></div>
+                <div class="color-name">Xanthous</div>
+                <div class="color-codes">
+                    HEX: #F8B02A<br>
+                    HSL: 39, 94%, 57%
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-preview" style="background:#F0E58E;"></div>
+                <div class="color-name">Flax</div>
+                <div class="color-codes">
+                    HEX: #F0E58E<br>
+                    HSL: 53, 77%, 75%
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-preview" style="background:#B3E0FF;"></div>
+                <div class="color-name">Uranian Blue</div>
+                <div class="color-codes">
+                    HEX: #B3E0FF<br>
+                    HSL: 204, 100%, 85%
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="color-preview" style="background:#6BB3FF;"></div>
+                <div class="color-name">Argentinian Blue</div>
+                <div class="color-codes">
+                    HEX: #6BB3FF<br>
+                    HSL: 211, 100%, 71%
+                </div>
+            </div>
+        </div>
+
+        <h3 class="sub-head">Color Usage Guidelines</h3>
+
+        <table class="tbl">
+            <thead>
+                <tr>
+                    <th>Element</th>
+                    <th>Primary Color</th>
+                    <th>Accent Colors</th>
+                    <th>Usage Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Backgrounds</td>
+                    <td>White / Black</td>
+                    <td>Gradient overlays</td>
+                    <td>Use gradients sparingly for impact</td>
+                </tr>
+                <tr>
+                    <td>Headlines</td>
+                    <td>Black</td>
+                    <td>Bright Pink, Areo</td>
+                    <td>High contrast for readability</td>
+                </tr>
+                <tr>
+                    <td>Buttons/CTAs</td>
+                    <td>Bright Pink</td>
+                    <td>Areo, Icetrine</td>
+                    <td>Use vibrant colors for action</td>
+                </tr>
+                <tr>
+                    <td>Links</td>
+                    <td>Areo</td>
+                    <td>Bright Pink</td>
+                    <td>Underline on hover</td>
+                </tr>
+                <tr>
+                    <td>Dividers</td>
+                    <td>Non Photo Blue</td>
+                    <td>Icetrine</td>
+                    <td>Subtle separation</td>
+                </tr>
+                <tr>
+                    <td>Gradients</td>
+                    <td>Pink→Yellow→Blue</td>
+                    <td>Multi-color blends</td>
+                    <td>Signature sunset/sunrise feel</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="ib mt3">
+            <h4>Pantone References</h4>
+            <ul>
+                <li><strong>Icetrine:</strong> Pantone 3935 C (Distance 18)</li>
+                <li><strong>Areo:</strong> Pantone 311 C (Distance 6)</li>
+                <li><strong>Non Photo Blue:</strong> Pantone 2975 C (Distance 29)</li>
+                <li><strong>Bright Pink:</strong> Pantone 1915 C (Distance 14)</li>
+                <li><strong>Black:</strong> Pantone Black 6 C (Distance 43)</li>
+            </ul>
+            <p style="margin-top:.8rem; font-style:italic; color:#666;">For professional printing, use the Pantone converter at studiored.com for precise color matching.</p>
+        </div>
+
+        <div class="ib mt2 pink-box">
+            <h4>Color Philosophy</h4>
+            <p>Our colors should feel like a <strong>sunset over the ocean meeting neon lights at night</strong>. Warm meets cool, day meets night, nature meets energy. Use bold combinations fearlessly—we're not subtle, we're sunshine.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     05 — TYPOGRAPHY
+     ════════════════════════════════════════════════ -->
+<section class="section" id="typography" style="background:#000;">
+    <div class="sn">06 — Typography</div>
+    <div class="section-content">
+        <h2 class="st">Typography System</h2>
+        
+        <p class="lead">
+            Our typography is <strong>bold and clear</strong>. We use <strong>Anton</strong> for headlines—a font with impact and presence—and <strong>Avenir</strong> for body text—clean, modern, and highly readable.
+        </p>
+
+        <h3 class="sub-head">Primary Typefaces</h3>
+
+        <div class="two-col">
+            <div class="col-box">
+                <h3 style="font-family:var(--heading); font-size:3rem; line-height:1.1; color:#06C0E3;">ANTON</h3>
+                <p style="margin-top:1rem;"><strong>Headings & Display Text</strong></p>
+                <p style="margin-top:.5rem; color:#666;">Bold, impactful, impossible to ignore. Use for headlines, event titles, and any text that needs to command attention.</p>
+                <p style="margin-top:1rem; font-family:var(--heading); font-size:2rem; text-transform:uppercase; color:#06C0E3;">SUNSHINE<br>LET'S GO<br>TURN UP</p>
+            </div>
+            <div class="col-box">
+                <h3 style="font-family:var(--body); font-size:2rem; font-weight:300; color:#06C0E3;">Avenir Light</h3>
+                <p style="margin-top:1rem;"><strong>Body Text & Descriptions</strong></p>
+                <p style="margin-top:.5rem; color:#666;">Clean, modern, effortlessly readable. Use for body copy, descriptions, and anywhere we need clarity and elegance.</p>
+                <p style="margin-top:1rem; font-size:1.1rem; line-height:1.8; color:#333;">Crisp highs, punchy mids, and bass that moves through your bones. We bring the sound, you bring the vibes.</p>
+            </div>
+        </div>
+
+        <h3 class="sub-head">Typography Hierarchy</h3>
+
+        <table class="tbl">
+            <thead>
+                <tr>
+                    <th>Style</th>
+                    <th>Font</th>
+                    <th>Size (Desktop)</th>
+                    <th>Size (Mobile)</th>
+                    <th>Weight</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Heading 1 (Hero)</td>
+                    <td>Anton</td>
+                    <td>200px</td>
+                    <td>100px</td>
+                    <td>Regular (400)</td>
+                </tr>
+                <tr>
+                    <td>Heading 2 (Section)</td>
+                    <td>Anton</td>
+                    <td>100px</td>
+                    <td>60px</td>
+                    <td>Regular (400)</td>
+                </tr>
+                <tr>
+                    <td>Heading 3 (Subsection)</td>
+                    <td>Anton</td>
+                    <td>60px</td>
+                    <td>33px</td>
+                    <td>Regular (400)</td>
+                </tr>
+                <tr>
+                    <td>Heading 4</td>
+                    <td>Anton</td>
+                    <td>33px</td>
+                    <td>24px</td>
+                    <td>Regular (400)</td>
+                </tr>
+                <tr>
+                    <td>Body Text (Large)</td>
+                    <td>Avenir Light</td>
+                    <td>22px</td>
+                    <td>18px</td>
+                    <td>Light (300)</td>
+                </tr>
+                <tr>
+                    <td>Body Text (Regular)</td>
+                    <td>Avenir Light</td>
+                    <td>18px</td>
+                    <td>16px</td>
+                    <td>Light (300)</td>
+                </tr>
+                <tr>
+                    <td>Body Text (Small)</td>
+                    <td>Avenir Light</td>
+                    <td>14px</td>
+                    <td>14px</td>
+                    <td>Light (300)</td>
+                </tr>
+                <tr>
+                    <td>Labels & Tags</td>
+                    <td>Avenir</td>
+                    <td>12px</td>
+                    <td>12px</td>
+                    <td>Medium (500)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="ib mt3">
+            <h4>Typography Rules</h4>
+            <ul>
+                <li><strong>Always use ALL CAPS for Anton:</strong> It's designed to be shouted</li>
+                <li><strong>Never stretch or condense:</strong> Maintain proper aspect ratios</li>
+                <li><strong>Generous line spacing:</strong> Use 1.8-2.0 line-height for body text</li>
+                <li><strong>Contrast is key:</strong> Dark text on light backgrounds, light on dark</li>
+                <li><strong>Hierarchy matters:</strong> Use size and weight to create clear visual order</li>
+            </ul>
+        </div>
+
+        <div class="ib mt2 green-box">
+            <h4>Web Implementation</h4>
+            <p><strong>Important:</strong> Anton Regular (400 weight) from Google Fonts may render thinner than the logo on some browsers and operating systems. The logo appears bolder and more solid.</p>
+            <p style="margin-top:.8rem;">To make Anton appear bolder on the web to match the logo:</p>
+            <p style="margin-top:.5rem;"><code>font-family: 'Anton', sans-serif;</code><br>
+            <code>font-weight: 400;</code><br>
+            <code>letter-spacing: -0.05em;</code><br>
+            <code>-webkit-text-stroke: 0.5px;</code> (adds subtle weight)<br>
+            <code>text-rendering: optimizeLegibility;</code></p>
+            <p style="margin-top:.8rem;">Avenir requires a web font license or can be substituted with "Avenir Next" (system font on Apple devices) or "Montserrat" as a free alternative.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     06 — IMAGERY & PHOTOGRAPHY
+     ════════════════════════════════════════════════ -->
+<section class="section bg-gradient-1" id="imagery">
+    <div class="sn">07 — Imagery</div>
+    <div class="section-content">
+        <h2 class="st">Visual Style</h2>
+        
+        <p class="lead">
+            Our imagery captures <strong>energy in motion</strong>—sunsets bleeding into night skies, dancing silhouettes, vinyl records catching the light, beach scenes meeting neon glow. Every image should feel <strong>vibrant, alive, and impossible to scroll past</strong>.
+        </p>
+
+        <h3 class="sub-head">Photography Guidelines</h3>
+
+        <div class="content-grid">
+            <div class="cc">
+                <h4>Color Treatment</h4>
+                <p>Saturate and enhance. Push the pinks pinker, the blues bluer. Our photos should feel like they're already filtered for the golden hour—warm, glowing, electric.</p>
+                <span class="tag">Vibrant</span>
+                <span class="tag">Saturated</span>
+            </div>
+            <div class="cc">
+                <h4>Subject Matter</h4>
+                <p>Sunrises and sunsets, beach scenes, vinyl records, turntables, dancing crowds, light trails, palm trees, speaker stacks, festival moments, intimate gatherings.</p>
+                <span class="tag">Atmospheric</span>
+                <span class="tag">Musical</span>
+            </div>
+            <div class="cc">
+                <h4>Composition</h4>
+                <p>Dynamic angles, movement, depth. Avoid static, posed shots. Capture the feeling of being there—the bass you can almost feel, the light you want to step into.</p>
+                <span class="tag">Dynamic</span>
+                <span class="tag">Immersive</span>
+            </div>
+            <div class="cc">
+                <h4>Lighting</h4>
+                <p>Golden hour, blue hour, neon glow, dramatic shadows. Light should be theatrical—never flat, always intentional, creating mood and atmosphere.</p>
+                <span class="tag">Dramatic</span>
+                <span class="tag">Moody</span>
+            </div>
+            <div class="cc">
+                <h4>People</h4>
+                <p>Show authentic moments—hands in the air, eyes closed, lost in the music. Focus on emotion and energy, not perfect poses. Diverse crowds, inclusive vibes.</p>
+                <span class="tag">Authentic</span>
+                <span class="tag">Energetic</span>
+            </div>
+            <div class="cc">
+                <h4>Equipment</h4>
+                <p>Make our gear look as sexy as it sounds. Dramatic lighting on turntables, close-ups of vinyl grooves, speaker arrays with depth and scale. Technical beauty.</p>
+                <span class="tag">Professional</span>
+                <span class="tag">Detailed</span>
+            </div>
+        </div>
+
+        <h3 class="sub-head">Visual Themes</h3>
+
+        <div class="two-col">
+            <div class="col-box">
+                <h3>Sunrise Sessions</h3>
+                <ul>
+                    <li>Pre-dawn blue hour atmosphere</li>
+                    <li>Silhouettes against rising sun</li>
+                    <li>Barefoot dancers on sand or grass</li>
+                    <li>Peaceful yet energized crowd moments</li>
+                    <li>Yoga/movement integrated with music</li>
+                    <li>Natural beauty as backdrop</li>
+                </ul>
+            </div>
+            <div class="col-box">
+                <h3>Festival & Party</h3>
+                <ul>
+                    <li>Crowd energy and movement</li>
+                    <li>Dramatic stage lighting</li>
+                    <li>DJ booth perspective shots</li>
+                    <li>Light trails and long exposures</li>
+                    <li>Neon and colored gels</li>
+                    <li>Peak energy moments</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="ib mt3 pink-box">
+            <h4>What to Avoid</h4>
+            <ul style="margin-top:.8rem;">
+                <li>Generic stock photos—nothing that feels staged or fake</li>
+                <li>Overly dark or underexposed images—we're SUNSHINE Sound Systems</li>
+                <li>Flat, lifeless color palettes—always enhance and saturate</li>
+                <li>Empty venues or equipment shots without context</li>
+                <li>Boring angles—get creative with perspective</li>
+            </ul>
+        </div>
+
+        <div class="ib mt2">
+            <h4>AI-Generated Imagery</h4>
+            <p>The images in this project showcase our visual aesthetic—vibrant sunset colors, musical elements (vinyl, turntables), beach and festival atmospheres. When creating marketing materials, use this style as reference: saturated colors from our palette, dramatic lighting, and energetic compositions.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     07 — MESSAGING & COPYWRITING
+     ════════════════════════════════════════════════ -->
+<section class="section" id="messaging" style="background:#000;">
+    <div class="sn">08 — Messaging</div>
+    <div class="section-content">
+        <h2 class="st">Key Messages</h2>
+        
+        <p class="lead">
+            Our messaging is built around <strong>energy, quality, and transformation</strong>. We don't just provide sound equipment—we create experiences that people remember.
+        </p>
+
+        <h3 class="sub-head">Core Messages</h3>
+
+        <div class="content-grid">
+            <div class="cc">
+                <h4>Sound That Hits Different</h4>
+                <p>Crisp highs, punchy mids, and bass that moves through your bones. We bring pro-level sound that makes every beat count.</p>
+            </div>
+            <div class="cc">
+                <h4>DJs Who Get It</h4>
+                <p>We don't just press play. We curate, mix, and create moments that keep people dancing till the last track drops.</p>
+            </div>
+            <div class="cc">
+                <h4>Custom-Built For You</h4>
+                <p>No cookie-cutter playlists. We fine-tune the sound and setlist to fit your crowd, your energy, your vision.</p>
+            </div>
+            <div class="cc">
+                <h4>Any Size, Any Vibe</h4>
+                <p>From intimate rooftop parties to massive festival stages, we scale up (or down) to fit the scene.</p>
+            </div>
+            <div class="cc">
+                <h4>Zero Stress Execution</h4>
+                <p>We handle the setup, soundcheck, and smooth execution—so all you have to do is enjoy the ride.</p>
+            </div>
+            <div class="cc">
+                <h4>More Than Music</h4>
+                <p>We bring lighting, visuals, and atmosphere. The right sound with the right vibe creates magic.</p>
+            </div>
+        </div>
+
+        <h3 class="sub-head">Value Propositions</h3>
+
+        <table class="tbl">
+            <thead>
+                <tr>
+                    <th>Benefit</th>
+                    <th>Message</th>
+                    <th>Context</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Professional Quality</td>
+                    <td>"State-of-the-art equipment meets flawless execution"</td>
+                    <td>Service pages, proposals</td>
+                </tr>
+                <tr>
+                    <td>Expertise</td>
+                    <td>"DJs who read the crowd and drop the perfect beats at the perfect time"</td>
+                    <td>About page, DJ profiles</td>
+                </tr>
+                <tr>
+                    <td>Customization</td>
+                    <td>"Tailored to your vibe—from laid-back grooves to high-energy anthems"</td>
+                    <td>Event planning, consultations</td>
+                </tr>
+                <tr>
+                    <td>Reliability</td>
+                    <td>"No sound issues, no awkward silences—just smooth, uninterrupted music"</td>
+                    <td>Service guarantees</td>
+                </tr>
+                <tr>
+                    <td>Community</td>
+                    <td>"Creating spaces where everyone belongs—good vibes, good people, great music"</td>
+                    <td>Brand messaging, events</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="sub-head">Call-to-Action Examples</h3>
+
+        <div class="ib">
+            <h4>Website CTAs</h4>
+            <ul>
+                <li>"Let's turn your event into an unforgettable party—drop us a message!"</li>
+                <li>"Ready to take your celebration to the next level? Connect with us."</li>
+                <li>"Your event deserves a soundtrack as epic as the moment. Let's talk."</li>
+                <li>"Bring on the good vibes! Contact us to design your perfect sound experience."</li>
+                <li>"Epic events need epic tunes! Hit us up and let's rock this party."</li>
+            </ul>
+        </div>
+
+        <div class="ib mt2">
+            <h4>Event CTAs</h4>
+            <ul>
+                <li>"Claim your spot before we're full →"</li>
+                <li>"Join us at the edge of morning →"</li>
+                <li>"Get on the list. Let's get this party started →"</li>
+                <li>"Reserve your place. The dancefloor is calling →"</li>
+            </ul>
+        </div>
+
+        <div class="qb mt3">
+            <p>Good vibes. Great sound. Unforgettable nights. That's the Sunshine promise—and we deliver every single time.</p>
+            <cite>— Brand Essence</cite>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     08 — EVENT COMMUNICATIONS
+     ════════════════════════════════════════════════ -->
+<section class="section bg-gradient-2" id="events">
+    <div class="sn">09 — Events</div>
+    <div class="section-content">
+        <h2 class="st">Event Communications</h2>
+        
+        <p class="lead">
+            Event communications should be <strong>clear, energetic, and consistent</strong>. From registration to follow-up, every touchpoint reinforces our brand personality.
+        </p>
+
+        <h3 class="sub-head">Email Templates</h3>
+
+        <div class="two-col">
+            <div class="col-box">
+                <h3>Ticket Confirmation</h3>
+                <p style="margin-bottom:1rem; color:#666;">Subject: You're In – [Event Name] Awaits ☀️🌙</p>
+                <p style="font-size:.9rem; line-height:1.8; color:#333;">
+                    Hey there,<br><br>
+                    You're officially on the list. Your ticket is confirmed.<br><br>
+                    From dusk 'til dawn, this is where sound takes center stage. Dress comfortably, bring good energy, and let the music do the rest.<br><br>
+                    Questions? Drop us a line at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1360667d607b7a7d76607c667d77606a6067767e6053747e727a7f3d707c7e">[email&#160;protected]</a><br><br>
+                    Stay Golden,<br>
+                    Sunshine Sound Systems
+                </p>
+            </div>
+            <div class="col-box">
+                <h3>Event Reminder</h3>
+                <p style="margin-bottom:1rem; color:#666;">Subject: It's Almost Time – [Event Name] Is Coming ✨</p>
+                <p style="font-size:.9rem; line-height:1.8; color:#333;">
+                    Hey,<br><br>
+                    Just a quick reminder—your next Sunshine night is almost here.<br><br>
+                    Expect rich sound, late-night grooves, and good people. We'll be turning it up until sunrise.<br><br>
+                    Questions? Drop us a line at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f083859e8398999e95839f859e9483898384959d83b0979d91999cde939f9d">[email&#160;protected]</a><br><br>
+                    Stay Golden,<br>
+                    Sunshine Sound Systems
+                </p>
+            </div>
+        </div>
+
+        <div class="two-col mt3">
+            <div class="col-box">
+                <h3>Cancellation Notice</h3>
+                <p style="margin-bottom:1rem; color:#666;">Subject: Change of Plans – [Event Name] Canceled ⚠️</p>
+                <p style="font-size:.9rem; line-height:1.8; color:#333;">
+                    Hey,<br><br>
+                    We're sorry to say that due to unforeseen circumstances, we have to cancel this event.<br><br>
+                    You'll receive a full refund within 5–7 business days. If we reschedule, you'll be the first to hear.<br><br>
+                    Thanks for understanding—we'll be back soon with something special.<br><br>
+                    Take care,<br>
+                    Sunshine Sound Systems
+                </p>
+            </div>
+            <div class="col-box">
+                <h3>Waitlist Notification</h3>
+                <p style="margin-bottom:1rem; color:#666;">Subject: A Few Spots Just Opened 🌤</p>
+                <p style="font-size:.9rem; line-height:1.8; color:#333;">
+                    Heads up! Some space just freed up for [Event Name].<br><br>
+                    This is your shot to step in before we go public. If you're still feeling the call, now's the time to grab your spot.<br><br>
+                    👉 [Claim Your Place]<br><br>
+                    We'll meet you at the edge of morning.<br><br>
+                    — Sunshine Sound Systems
+                </p>
+            </div>
+        </div>
+
+        <h3 class="sub-head">Website Notifications</h3>
+
+        <div class="ib mt2">
+            <h4>Tickets Unavailable Message</h4>
+            <p>This event's full, but the music doesn't stop here. Check out what's on next →</p>
+        </div>
+
+        <div class="ib mt2">
+            <h4>Registration Closed Message</h4>
+            <p>Sorry! Our guest list is locked in. Registration is closed. See what's coming up →</p>
+        </div>
+
+        <div class="ib mt2">
+            <h4>Thank You (Registration Page)</h4>
+            <p><em>You're in.</em> 🌅<br>
+            Thanks for locking in your spot at [Event Name]. Expect light, sound, connection, and something you'll want to wake up for again. Full details are headed to your inbox soon.</p>
+        </div>
+
+        <h3 class="sub-head">Event Policy Summary</h3>
+
+        <table class="tbl mt3">
+            <thead>
+                <tr>
+                    <th>Policy</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Booking Confirmation</td>
+                    <td>Spot is locked after full payment received</td>
+                </tr>
+                <tr>
+                    <td>Cancellation (7+ days)</td>
+                    <td>Full refund</td>
+                </tr>
+                <tr>
+                    <td>Cancellation (within 2 days)</td>
+                    <td>No refund</td>
+                </tr>
+                <tr>
+                    <td>No-shows</td>
+                    <td>No refund</td>
+                </tr>
+                <tr>
+                    <td>Event Cancellation (us)</td>
+                    <td>Full refund or transfer to new date</td>
+                </tr>
+                <tr>
+                    <td>Code of Conduct</td>
+                    <td>Respect venue, crew, and fellow dancers—disruptive behavior = removal without refund</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="ib mt3 pink-box">
+            <h4>Sunrise Sessions Example</h4>
+            <p>Our signature event series showcases the brand perfectly: "When the night exhales and the sky starts to blush, we're already setting the tone. Sunrise Sessions is that rare, electric space between darkness and daylight—where music becomes the language of change."</p>
+            <p style="margin-top:1rem;">Schedule includes: Blue hour ambient set → sunrise yoga → main DJ set → nourishment → uplift set → soft close. It's ignition, not wind-down.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     09 — DIGITAL IMPLEMENTATION
+     ════════════════════════════════════════════════ -->
+<section class="section" id="digital" style="background:#000;">
+    <div class="sn">10 — Digital</div>
+    <div class="section-content">
+        <h2 class="st">Website Standards</h2>
+        
+        <p class="lead">
+            The Sunshine Sound Systems website (built on Wix Studio) should be a <strong>visual celebration</strong>—vibrant colors, bold typography, and generous use of our sunset-inspired palette. Every page should feel energetic and alive.
+        </p>
+
+        <h3 class="sub-head">Color Application (Web)</h3>
+
+        <table class="tbl">
+            <thead>
+                <tr>
+                    <th>Element</th>
+                    <th>Color</th>
+                    <th>Hex</th>
+                    <th>Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Primary Background</td>
+                    <td>White</td>
+                    <td><code>#FFFFFF</code></td>
+                    <td>Main sections, clean canvas</td>
+                </tr>
+                <tr>
+                    <td>Hero Sections</td>
+                    <td>Gradient (Pink→Yellow→Blue)</td>
+                    <td>Multi-color</td>
+                    <td>Opening sections, featured events</td>
+                </tr>
+                <tr>
+                    <td>Accent Backgrounds</td>
+                    <td>Bright Pink / Areo</td>
+                    <td><code>#FA5281</code> / <code>#06C0E3</code></td>
+                    <td>CTAs, highlights, featured content</td>
+                </tr>
+                <tr>
+                    <td>All Body Text</td>
+                    <td>Black</td>
+                    <td><code>#000000</code></td>
+                    <td>Headlines, paragraphs</td>
+                </tr>
+                <tr>
+                    <td>Links</td>
+                    <td>Areo</td>
+                    <td><code>#06C0E3</code></td>
+                    <td>Inline links, navigation</td>
+                </tr>
+                <tr>
+                    <td>Buttons (Primary)</td>
+                    <td>Bright Pink</td>
+                    <td><code>#FA5281</code></td>
+                    <td>Main CTAs</td>
+                </tr>
+                <tr>
+                    <td>Buttons (Secondary)</td>
+                    <td>Icetrine</td>
+                    <td><code>#FCF766</code></td>
+                    <td>Secondary actions</td>
+                </tr>
+                <tr>
+                    <td>Dividers</td>
+                    <td>Non Photo Blue</td>
+                    <td><code>#9CECFC</code></td>
+                    <td>Section breaks, borders</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="sub-head">Typography Implementation</h3>
+
+        <div class="ib">
+            <h4>Font Loading</h4>
+            <p>Load Anton from Google Fonts. Use Avenir if licensed, or substitute with Avenir Next (system) or Montserrat (free).</p>
+            <p style="margin-top:.8rem;"><code>@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');</code></p>
+        </div>
+
+        <h3 class="sub-head">Button Styling</h3>
+
+        <div class="two-col mt3">
+            <div class="col-box">
+                <h3>Primary Button</h3>
+                <ul>
+                    <li>Background: Bright Pink (#FA5281)</li>
+                    <li>Text: White (#FFFFFF)</li>
+                    <li>Font: Avenir Medium, 14px</li>
+                    <li>Letter-spacing: 0.15em</li>
+                    <li>Transform: UPPERCASE</li>
+                    <li>Padding: 16px 32px</li>
+                    <li>Border-radius: 8px</li>
+                    <li>Hover: Darken 10%, lift 2px</li>
+                </ul>
+            </div>
+            <div class="col-box">
+                <h3>Secondary Button</h3>
+                <ul>
+                    <li>Background: Transparent</li>
+                    <li>Border: 2px solid Black</li>
+                    <li>Text: Black (#000000)</li>
+                    <li>Font: Avenir Medium, 14px</li>
+                    <li>Letter-spacing: 0.15em</li>
+                    <li>Transform: UPPERCASE</li>
+                    <li>Padding: 14px 30px</li>
+                    <li>Border-radius: 8px</li>
+                    <li>Hover: Fill Black, text White</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 class="sub-head">Spacing & Layout</h3>
+
+        <div class="ib mt3">
+            <h4>Section Spacing</h4>
+            <ul>
+                <li><strong>Section Padding (Desktop):</strong> 6rem (96px) top/bottom, 4rem (64px) left/right</li>
+                <li><strong>Section Padding (Mobile):</strong> 3rem (48px) top/bottom, 1.5rem (24px) left/right</li>
+                <li><strong>Between Elements:</strong> 2-3rem (32-48px)</li>
+                <li><strong>Max Content Width:</strong> 1400px centered</li>
+                <li><strong>Image Aspect Ratio (Events):</strong> 16:9</li>
+            </ul>
+        </div>
+
+        <div class="ib mt2 green-box">
+            <h4>Animation & Interaction</h4>
+            <p>Use smooth transitions (0.3s ease). Hover states should lift elements slightly (2-5px) and add subtle shadows. Buttons should feel responsive and tactile. Page transitions should be smooth, never jarring.</p>
+        </div>
+
+        <h3 class="sub-head">Social Media Guidelines</h3>
+
+        <table class="tbl mt3">
+            <thead>
+                <tr>
+                    <th>Platform</th>
+                    <th>Tone</th>
+                    <th>Content Types</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Instagram</td>
+                    <td>Visual, Energetic</td>
+                    <td>Event photos, DJ spotlights, sunset shots, behind-the-scenes, Stories for announcements</td>
+                </tr>
+                <tr>
+                    <td>Facebook</td>
+                    <td>Community-focused</td>
+                    <td>Event pages, longer updates, photo albums, community engagement</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>Direct, Friendly</td>
+                    <td>Event announcements, confirmations, reminders, exclusive access</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="ib mt3">
+            <h4>Social Media Voice</h4>
+            <ul>
+                <li>Keep it casual and energetic—use emojis sparingly but effectively</li>
+                <li>Tag DJs, venues, and collaborators when appropriate</li>
+                <li>Use hashtags: #SunshineSoundSystems #SpreadingSunshine #LetsgGetThisPartyStarted</li>
+                <li>Respond to comments warmly and authentically</li>
+                <li>Share user-generated content (with permission) to build community</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════ -->
+<section class="section" style="min-height:40vh; background:#000; border-top:2px solid var(--bright-pink); color:#fff; text-align:center; align-items:center; justify-content:center;">
+    <div class="section-content" style="max-width:800px;">
+        <h2 style="font-family:var(--heading); font-size:3rem; text-transform:uppercase; margin-bottom:1.5rem; color:#FCF766; letter-spacing:-0.05em;">Where Epic Unfolds</h2>
+        <p style="font-size:1.2rem; margin-bottom:2rem; opacity:0.9;">Ready to bring your event to life? We're here to help.</p>
+        <p style="font-size:1rem; opacity:0.85; margin-bottom:3rem;">
+            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3043455e4358595e55435f455e5443494344555d4370575d51595c1e535f5d">[email&#160;protected]</a><br>
+            <em>Based wherever the music takes us — Available for bookings worldwide</em>
+        </p>
+        <p style="font-size:0.85rem; opacity:0.7; margin-top:4rem;">
+            © 2026 Sunshine Sound Systems. All rights reserved.<br>
+            <em>Where Epic Unfolds</em>
+        </p>
+    </div>
+</section>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function(){
+    var links = document.querySelectorAll('.topnav-link');
+    var sectionIds = Array.from(links).map(function(l){ return l.dataset.target; });
+
+    function update(){
+        var y = window.scrollY;
+        var active = null;
+        sectionIds.forEach(function(id){
+            var el = document.getElementById(id);
+            if(!el) return;
+            if(y >= el.offsetTop - 120) active = id;
+        });
+        links
