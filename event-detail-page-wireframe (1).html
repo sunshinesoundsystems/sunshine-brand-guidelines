@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSS Event Detail Page - Wireframe Spec</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --yellow: #FCF766;
+            --cyan: #06C0E3;
+            --light-blue: #9CECFC;
+            --pink: #FA5281;
+            --black: #000000;
+            --white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--yellow);
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        
+        .page-title {
+            font-size: 1rem;
+            color: var(--cyan);
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .section {
+            background: rgba(6, 192, 227, 0.05);
+            border: 3px solid var(--cyan);
+            margin-bottom: 80px;
+            position: relative;
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+        
+        .section-label {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--black);
+            padding: 2px 15px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--yellow);
+        }
+        
+        .section-content {
+            padding: 40px 30px 30px 30px;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+        
+        .spec-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px;
+            border-left: 3px solid var(--yellow);
+            border-radius: 2px;
+        }
+        
+        .spec-label {
+            font-weight: 700;
+            color: var(--yellow);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        
+        .spec-value {
+            color: var(--white);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+        
+        .layout-wireframe {
+            border: 2px solid var(--pink);
+            margin: 20px 0;
+            min-height: 150px;
+            position: relative;
+            background: rgba(250, 82, 129, 0.05);
+            border-radius: 4px;
+        }
+        
+        .wire-label {
+            font-size: 0.85rem;
+            color: #000;
+            font-weight: 500;
+        }
+        
+        .resources {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(252, 247, 102, 0.1);
+            border: 1px solid var(--yellow);
+            border-radius: 4px;
+        }
+        
+        .resources-title {
+            font-weight: 700;
+            color: var(--yellow);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .resource-link {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 8px;
+            padding: 4px 10px;
+            background: rgba(252, 247, 102, 0.15);
+            border: 1px solid var(--yellow);
+            border-radius: 3px;
+            font-size: 0.8rem;
+            color: var(--yellow);
+            text-decoration: none;
+            font-family: monospace;
+        }
+        
+        .note-box {
+            background: rgba(250, 82, 129, 0.1);
+            border-left: 4px solid var(--pink);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .note-title {
+            font-weight: 700;
+            color: var(--pink);
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        .note-content {
+            color: var(--white);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sunshine Sound Systems</h1>
+        <div class="page-title">Event Detail Page - Technical Wireframe Specification</div>
+        
+        <!-- IMPORTANT NOTE -->
+        <div class="note-box">
+            <div class="note-title">⚠️ Wix Events Module Integration</div>
+            <div class="note-content">
+                Event detail page content is managed through Wix Events Module. Event information, images, descriptions, ticketing, and schedule are dynamically populated from the event entry. Configure in Wix Events → Event Details. Styling and layout customization done in frontend CSS.
+            </div>
+        </div>
+        
+        <!-- SECTION 1: HERO -->
+        <div class="section">
+            <div class="section-label">Section 1: Hero - Event Title & CTA</div>
+            <div class="section-content">
+                
+                <!-- Layout Wireframe -->
+                <div class="layout-wireframe" style="padding: 60px 38px; overflow: hidden; min-height: auto; text-align: center;">
+                    <div class="wire-label" style="color: white; font-size: 2rem; margin-bottom: 15px;">SOLAR BEATS FESTIVAL</div>
+                    <div class="wire-label" style="color: white; font-size: 0.9rem; margin-bottom: 10px;">dom, 18 feb - Dénia</div>
+                    <div class="wire-label" style="color: white; font-size: 0.85rem; margin-bottom: 30px;">Our favorite gathering of sound and light dance. Three days that change suns unforgettable experience.</div>
+                    <div class="wire-label" style="color: white; border: 1px solid white; padding: 12px 30px; display: inline-block;">BUY TICKETS</div>
+                </div>
+                
+                <!-- Specs -->
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Container</div>
+                        <div class="spec-value">Full-width container with padding</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Position</div>
+                        <div class="spec-value">Top of page, below header<br>Padding left/right: 38px<br>Padding top: 60px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Proportions</div>
+                        <div class="spec-value">Centered layout<br>Max-width: 900px<br>Auto margins for centering</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Spacing</div>
+                        <div class="spec-value">Section padding: 60px vertical, 38px horizontal<br>Title margin-bottom: 15px<br>Date/Location margin-bottom: 10px<br>Description margin-bottom: 30px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Responsive Breakpoint</div>
+                        <div class="spec-value">Desktop/Tablet: same layout<br>Mobile: smaller text sizes, full-width button</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Animation/Behavior</div>
+                        <div class="spec-value">BUY TICKETS button: hover fills yellow (#FCF766), text turns black<br>Smooth transition 200ms</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Notes</div>
+                        <div class="spec-value">Event title: Yellow (#FCF766), large, bold, uppercase<br>Date/Location: White, smaller text<br>Description: White, body text<br>Button: outlined, white border, centered</div>
+                    </div>
+                </div>
+                
+                <!-- Resources -->
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[DYNAMIC: Event title]</span>
+                    <span class="resource-link">[DYNAMIC: Event date & location]</span>
+                    <span class="resource-link">[DYNAMIC: Event description (short)]</span>
+                    <span class="resource-link">[COPY: cta-button]</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 2: HERO IMAGE -->
+        <div class="section">
+            <div class="section-label">Section 2: Hero Image</div>
+            <div class="section-content">
+                
+                <!-- Layout Wireframe -->
+                <div class="layout-wireframe" style="padding: 0; overflow: hidden; min-height: auto;">
+                    <div style="background: #e0e0e0; height: 500px; display: flex; align-items: center; justify-content: center;">
+                        <div class="wire-label">[IMAGE: event-hero-image.jpg]</div>
+                    </div>
+                </div>
+                
+                <!-- Specs -->
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Container</div>
+                        <div class="spec-value">Full-width image container</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Position</div>
+                        <div class="spec-value">Below hero text section<br>Full-bleed (no side padding)</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Proportions</div>
+                        <div class="spec-value">Width: 100%<br>Height: 500-600px<br>Aspect ratio: 16:9 or 2:1</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Spacing</div>
+                        <div class="spec-value">Margin: 0<br>Padding: 0<br>Full-bleed to edges</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Responsive Breakpoint</div>
+                        <div class="spec-value">Desktop: 600px height<br>Tablet: 500px height<br>Mobile: 400px height, maintain aspect</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Animation/Behavior</div>
+                        <div class="spec-value">Optional: parallax scroll effect<br>Object-fit: cover</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Notes</div>
+                        <div class="spec-value">Featured event image from Wix Events<br>High-quality, vibrant imagery<br>Should represent event vibe/theme</div>
+                    </div>
+                </div>
+                
+                <!-- Resources -->
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[DYNAMIC: Event featured image]</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 3: TIME & LOCATION -->
+        <div class="section">
+            <div class="section-label">Section 3: Time & Location Info</div>
+            <div class="section-content">
+                
+                <!-- Layout Wireframe -->
+                <div class="layout-wireframe" style="padding: 40px 38px; overflow: hidden; min-height: auto;">
+                    <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <div class="wire-label" style="color: var(--yellow); font-size: 1.2rem; margin-bottom: 10px;">TIME & LOCATION</div>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <div class="wire-label" style="color: white; font-size: 0.9rem; margin-bottom: 5px;">📅 sáb, 18 feb, 22:00 - 22 feb, 16:00</div>
+                        <div class="wire-label" style="color: white; font-size: 0.85rem; opacity: 0.7;">3 days</div>
+                    </div>
+                    <div>
+                        <div class="wire-label" style="color: white; font-size: 0.9rem; margin-bottom: 5px;">📍 Carrer Dénia, 46 Dénia, Dénia, Alicante, Spain</div>
+                    </div>
+                </div>
+                
+                <!-- Specs -->
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Container</div>
+                        <div class="spec-value">Full-width container with padding</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Position</div>
+                        <div class="spec-value">Below hero image<br>Padding left/right: 38px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Proportions</div>
+                        <div class="spec-value">Max-width: 900px<br>Center-aligned</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Spacing</div>
+                        <div class="spec-value">Section padding: 40px vertical, 38px horizontal<br>Section heading margin-bottom: 10px<br>Border-bottom: 1px, 20px margin<br>Info blocks: 20px gap</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Responsive Breakpoint</div>
+                        <div class="spec-value">Same layout all sizes<br>Mobile: smaller text</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Animation/Behavior</div>
+                        <div class="spec-value">Static section<br>Optional: map link for location (opens Google Maps)</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Notes</div>
+                        <div class="spec-value">Section heading: Yellow (#FCF766)<br>Icons: emoji style (📅 📍)<br>Date/time: White text<br>Duration: lighter opacity<br>Location: White text, clickable (optional)</div>
+                    </div>
+                </div>
+                
+                <!-- Resources -->
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[COPY: section-heading]</span>
+                    <span class="resource-link">[DYNAMIC: Event date/time]</span>
+                    <span class="resource-link">[DYNAMIC: Event location]</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 4: ABOUT THE EVENT -->
+        <div class="section">
+            <div class="section-label">Section 4: About the Event</div>
+            <div class="section-content">
+                
+                <!-- Layout Wireframe -->
+                <div class="layout-wireframe" style="padding: 40px 38px; overflow: hidden; min-height: auto;">
+                    <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <div class="wire-label" style="color: var(--yellow); font-size: 1.2rem; margin-bottom: 10px;">ABOUT THE EVENT</div>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <div class="wire-label" style="color: white; font-size: 0.95rem; line-height: 1.8; text-align: left;">
+                            [Long-form event description with multiple paragraphs. Includes details about the event concept, what attendees can expect, special features, lineup information, etc. This is the main content area that sells the event experience.]
+                            <br><br>
+                            [Second paragraph with more details...]
+                            <br><br>
+                            [Third paragraph...]
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Specs -->
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Container</div>
+                        <div class="spec-value">Full-width container with padding</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Position</div>
+                        <div class="spec-value">Below time & location<br>Padding left/right: 38px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Proportions</div>
+                        <div class="spec-value">Max-width: 900px<br>Center-aligned</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Spacing</div>
+                        <div class="spec-value">Section padding: 40px vertical, 38px horizontal<br>Section heading margin-bottom: 10px<br>Border-bottom: 1px, 20px margin<br>Paragraph spacing: 20px between</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Responsive Breakpoint</div>
+                        <div class="spec-value">Same layout all sizes<br>Mobile: smaller text, tighter line-height</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Animation/Behavior</div>
+                        <div class="spec-value">Static content<br>Optional: "Read More" toggle if very long</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Notes</div>
+                        <div class="spec-value">Section heading: Yellow (#FCF766)<br>Body text: White, medium size<br>Line-height: 1.8 for readability<br>Can include bold text, links, lists</div>
+                    </div>
+                </div>
+                
+                <!-- Resources -->
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[COPY: section-heading]</span>
+                    <span class="resource-link">[DYNAMIC: Event full description]</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 5: EVENT GALLERY -->
+        <div class="section">
+            <div class="section-label">Section 5: Event Gallery</div>
+            <div class="section-content">
+                
+                <!-- Layout Wireframe -->
+                <div class="layout-wireframe" style="padding: 40px 38px; overflow: hidden; min-height: auto;">
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                        <div style="background: #e0e0e0; aspect-ratio: 1; display: flex; align-items: center; justify-content: center;">
+                            <div class="wire-label">[IMG 1]</div>
+                        </div>
+                        <div style="background: #e0e0e0; aspect-ratio: 1; display: flex; align-items: center; justify-content: center;">
+                            <div class="wire-label">[IMG 2]</div>
+                        </div>
+                        <div style="background: #e0e0e0; aspect-ratio: 1; display: flex; align-items: center; justify-content: center;">
+                            <div class="wire-label">[IMG 3]</div>
+                        </div>
+                        <div style="background: #e0e0e0; aspect-ratio: 1; display: flex; align-items: center; justify-content: center;">
+                            <div class="wire-label">[IMG 4]</div>
+                        </div>
+                        <div style="background: #e0e0e0; aspect-ratio: 1; display: flex; align-items: center; justify-content: center;">
+                            <div class="wire-label">[IMG 5]</div>
+                        </div>
+                        <div style="background: #e0e0e0; aspect-ratio: 1; display: flex; align-items: center; justify-content: center;">
+                            <div class="wire-label">[IMG 6]</div>
+                        </div>
+                        <div style="background: #e0e0e0; aspect-ratio: 1; display: flex; align-items: center; justify-content: center;">
+                            <div class="wire-label">[IMG 7]</div>
+                        </div>
+                        <div style="background: #e0e0e0; aspect-ratio: 1; display: flex; align-items: center; justify-content: center;">
+                            <div class="wire-label">[IMG 8]</div>
+                        </div>
+                        <div style="background: #e0e0e0; aspect-ratio: 1; display: flex; align-items: center; justify-content: center;">
+                            <div class="wire-label">[IMG 9]</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Specs -->
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Container</div>
+                        <div class="spec-value">Full-width container with padding</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Position</div>
+                        <div class="spec-value">Below about section<br>Padding left/right: 38px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Proportions</div>
+                        <div class="spec-value">Max-width: 1200px<br>3×3 grid (9 images)<br>Each image: square (1:1 aspect ratio)</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Spacing</div>
+                        <div class="spec-value">Section padding: 40px vertical, 38px horizontal<br>Gap between images: 15px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Responsive Breakpoint</div>
+                        <div class="spec-value">Desktop: 3 columns<br>Tablet: 2 columns<br>Mobile: 1 column</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Animation/Behavior</div>
+                        <div class="spec-value">Image hover: slight scale 1.05<br>Click: open lightbox/fullscreen view<br>Lightbox: navigate between images</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Notes</div>
+                        <div class="spec-value">Images from event gallery in Wix Events<br>Object-fit: cover<br>Square format enforced<br>Can display more/less than 9 images</div>
+                    </div>
+                </div>
+                
+                <!-- Resources -->
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[DYNAMIC: Event gallery images]</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 6: AUDIO PLAYER -->
+        <div class="section">
+            <div class="section-label">Section 6: Audio/Music Player (Optional)</div>
+            <div class="section-content">
+                
+                <!-- Layout Wireframe -->
+                <div class="layout-wireframe" style="padding: 40px 38px; overflow: hidden; min-height: auto;">
+                    <div style="max-width: 400px; margin: 0 auto; padding: 20px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px;">
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                            <div style="width: 80px; height: 80px; background: #e0e0e0; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                                <div class="wire-label">[COVER]</div>
+                            </div>
+                            <div>
+                                <div class="wire-label" style="color: white; font-size: 0.95rem; margin-bottom: 5px;">Sunrise Xfrig</div>
+                                <div class="wire-label" style="color: white; font-size: 0.8rem; opacity: 0.7;">🔊 Play Track</div>
+                            </div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); height: 4px; border-radius: 2px; margin-bottom: 10px;">
+                            <div style="background: var(--yellow); width: 30%; height: 100%; border-radius: 2px;"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <div class="wire-label" style="color: white; font-size: 0.75rem;">0:45</div>
+                            <div class="wire-label" style="color: white; font-size: 0.75rem;">2:30</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Specs -->
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Container</div>
+                        <div class="spec-value">Centered audio player widget</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Position</div>
+                        <div class="spec-value">Below gallery (optional section)<br>Padding left/right: 38px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Proportions</div>
+                        <div class="spec-value">Max-width: 400px<br>Center-aligned<br>Cover art: 80×80px square</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Spacing</div>
+                        <div class="spec-value">Section padding: 40px vertical, 38px horizontal<br>Internal padding: 20px<br>Element gaps: 15px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Responsive Breakpoint</div>
+                        <div class="spec-value">Same layout all sizes<br>Mobile: slightly smaller player</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Animation/Behavior</div>
+                        <div class="spec-value">Play/pause toggle<br>Progress bar: clickable to seek<br>Shows current time / total time<br>Volume control (optional)</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Notes</div>
+                        <div class="spec-value">Only displays if audio file attached to event<br>Border: subtle white outline<br>Progress bar: yellow fill (#FCF766)<br>Can use Wix Music Player or custom HTML5 audio</div>
+                    </div>
+                </div>
+                
+                <!-- Resources -->
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[DYNAMIC: Audio file from event]</span>
+                    <span class="resource-link">[DYNAMIC: Track title]</span>
+                    <span class="resource-link">[DYNAMIC: Cover art]</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 7: SCHEDULE -->
+        <div class="section">
+            <div class="section-label">Section 7: Event Schedule</div>
+            <div class="section-content">
+                
+                <!-- Layout Wireframe -->
+                <div class="layout-wireframe" style="padding: 40px 38px; overflow: hidden; min-height: auto;">
+                    <div style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <div class="wire-label" style="color: var(--yellow); font-size: 1.2rem; margin-bottom: 10px;">SCHEDULE</div>
+                    </div>
+                    
+                    <!-- Schedule Entry -->
+                    <div style="margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <div class="wire-label" style="color: white; font-size: 0.95rem; margin-bottom: 8px;">12:00 - 15:00</div>
+                        <div class="wire-label" style="color: white; font-size: 0.8rem; margin-bottom: 8px;">3 horas</div>
+                        <div class="wire-label" style="color: white; font-size: 1rem; margin-bottom: 5px;">Gates Open</div>
+                        <div class="wire-label" style="color: white; font-size: 0.85rem; opacity: 0.8;">📍All Stages</div>
+                    </div>
+                    
+                    <!-- Schedule Entry 2 -->
+                    <div style="margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <div class="wire-label" style="color: white; font-size: 0.95rem; margin-bottom: 8px;">15:00 - 18:00</div>
+                        <div class="wire-label" style="color: white; font-size: 0.8rem; margin-bottom: 8px;">3 horas</div>
+                        <div class="wire-label" style="color: white; font-size: 1rem; margin-bottom: 5px;">Opening Sessions</div>
+                        <div class="wire-label" style="color: white; font-size: 0.85rem; opacity: 0.8;">📍All Stages</div>
+                    </div>
+                    
+                    <div style="text-align: center; padding-top: 10px;">
+                        <div class="wire-label" style="color: var(--cyan); font-size: 0.9rem;">... more schedule entries ...</div>
+                    </div>
+                </div>
+                
+                <!-- Specs -->
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Container</div>
+                        <div class="spec-value">Full-width container with padding</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Position</div>
+                        <div class="spec-value">Below audio player<br>Padding left/right: 38px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Proportions</div>
+                        <div class="spec-value">Max-width: 900px<br>Center-aligned<br>List format (vertical stack)</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Spacing</div>
+                        <div class="spec-value">Section padding: 40px vertical, 38px horizontal<br>Entry spacing: 25px between<br>Border-bottom: 1px between entries</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Responsive Breakpoint</div>
+                        <div class="spec-value">Same layout all sizes<br>Mobile: slightly smaller text</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Animation/Behavior</div>
+                        <div class="spec-value">Optional: expandable entries with "Show More"<br>Static display by default</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Notes</div>
+                        <div class="spec-value">Section heading: Yellow (#FCF766)<br>Time: White text<br>Duration: White, smaller, lighter<br>Entry title: White, bold<br>Location: emoji + text<br>Same structure as Schedule View page</div>
+                    </div>
+                </div>
+                
+                <!-- Resources -->
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[COPY: section-heading]</span>
+                    <span class="resource-link">[DYNAMIC: Schedule entries from Wix Events]</span>
+                </div>
+                
+                <div class="note-box">
+                    <div class="note-title">Schedule Integration</div>
+                    <div class="note-content">
+                        Schedule section pulls from the same Wix Events schedule data as the standalone Schedule View page. Can display condensed version here or link to full schedule page.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 8: TICKETS -->
+        <div class="section">
+            <div class="section-label">Section 8: Tickets & Pricing</div>
+            <div class="section-content">
+                
+                <!-- Layout Wireframe -->
+                <div class="layout-wireframe" style="padding: 40px 38px; overflow: hidden; min-height: auto;">
+                    <div style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <div class="wire-label" style="color: var(--yellow); font-size: 1.2rem; margin-bottom: 10px;">TICKETS</div>
+                    </div>
+                    
+                    <!-- Ticket Option 1 -->
+                    <div style="border: 1px solid rgba(255,255,255,0.2); padding: 20px; margin-bottom: 20px; border-radius: 4px;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                            <div>
+                                <div class="wire-label" style="color: white; font-size: 1.1rem; margin-bottom: 5px;">Admission</div>
+                                <div class="wire-label" style="color: white; font-size: 0.85rem; opacity: 0.7;">General Admission</div>
+                            </div>
+                            <div class="wire-label" style="color: white; font-size: 1.2rem; font-weight: 700;">150,00 €</div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div class="wire-label" style="color: white; border: 1px solid white; padding: 8px 12px; cursor: pointer;">-</div>
+                                <div class="wire-label" style="color: white; font-size: 1rem;">1</div>
+                                <div class="wire-label" style="color: white; border: 1px solid white; padding: 8px 12px; cursor: pointer;">+</div>
+                            </div>
+                            <div class="wire-label" style="color: white; background: var(--yellow); color: black; padding: 10px 25px; font-weight: 700; border-radius: 4px;">Quantity</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Ticket Option 2 -->
+                    <div style="border: 1px solid rgba(255,255,255,0.2); padding: 20px; margin-bottom: 20px; border-radius: 4px;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                            <div>
+                                <div class="wire-label" style="color: white; font-size: 1.1rem; margin-bottom: 5px;">VIP All-Access Pass</div>
+                                <div class="wire-label" style="color: white; font-size: 0.85rem; opacity: 0.7;">Full festival access</div>
+                            </div>
+                            <div class="wire-label" style="color: white; font-size: 1.2rem; font-weight: 700;">295,00 €</div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div class="wire-label" style="color: white; border: 1px solid white; padding: 8px 12px; cursor: pointer;">-</div>
+                                <div class="wire-label" style="color: white; font-size: 1rem;">1</div>
+                                <div class="wire-label" style="color: white; border: 1px solid white; padding: 8px 12px; cursor: pointer;">+</div>
+                            </div>
+                            <div class="wire-label" style="color: white; background: var(--yellow); color: black; padding: 10px 25px; font-weight: 700; border-radius: 4px;">Quantity</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Total & Checkout -->
+                    <div style="border-top: 2px solid rgba(255,255,255,0.2); padding-top: 30px; margin-top: 30px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <div class="wire-label" style="color: white; font-size: 1.3rem; font-weight: 700;">Total</div>
+                            <div class="wire-label" style="color: white; font-size: 1.5rem; font-weight: 700;">0,00 €</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div class="wire-label" style="color: black; background: var(--yellow); padding: 15px 40px; font-size: 1.1rem; font-weight: 700; border-radius: 4px; display: inline-block;">Checkout</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Specs -->
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Container</div>
+                        <div class="spec-value">Full-width container with padding</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Position</div>
+                        <div class="spec-value">Below schedule<br>Padding left/right: 38px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Proportions</div>
+                        <div class="spec-value">Max-width: 700px<br>Center-aligned</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Spacing</div>
+                        <div class="spec-value">Section padding: 40px vertical, 38px horizontal<br>Ticket cards: 20px gap<br>Internal padding: 20px per card</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Responsive Breakpoint</div>
+                        <div class="spec-value">Desktop/Tablet: same layout<br>Mobile: stack ticket info vertically</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Animation/Behavior</div>
+                        <div class="spec-value">+/- buttons: increment/decrement quantity<br>Total updates in real-time<br>Quantity button: add to cart (optional)<br>Checkout button: proceed to Wix checkout<br>Disabled state if sold out</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Notes</div>
+                        <div class="spec-value">Section heading: Yellow (#FCF766)<br>Ticket cards: bordered, subtle bg<br>Ticket name: White, bold<br>Price: White, large, bold<br>+/- buttons: white border<br>Quantity display: centered<br>Checkout button: yellow bg, black text<br>Powered by Wix Events ticketing</div>
+                    </div>
+                </div>
+                
+                <!-- Resources -->
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[COPY: section-heading]</span>
+                    <span class="resource-link">[DYNAMIC: Ticket options from Wix Events]</span>
+                    <span class="resource-link">[COPY: checkout-button]</span>
+                </div>
+                
+                <div class="note-box">
+                    <div class="note-title">Wix Events Ticketing</div>
+                    <div class="note-content">
+                        Ticketing powered by Wix Events Module. Configure ticket types, pricing, quantities, and availability in Wix Events → Tickets. Checkout process handled by Wix. Payment processing, confirmations, and attendee management all through Wix backend.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 9: SHARE THIS EVENT -->
+        <div class="section">
+            <div class="section-label">Section 9: Share This Event</div>
+            <div class="section-content">
+                
+                <!-- Layout Wireframe -->
+                <div class="layout-wireframe" style="padding: 30px 38px; overflow: hidden; min-height: auto; text-align: center;">
+                    <div class="wire-label" style="color: white; font-size: 1rem; margin-bottom: 15px;">Share this event</div>
+                    <div style="display: flex; justify-content: center; gap: 20px;">
+                        <div class="wire-label" style="color: white; font-size: 1.5rem;">f</div>
+                        <div class="wire-label" style="color: white; font-size: 1.5rem;">×</div>
+                        <div class="wire-label" style="color: white; font-size: 1.5rem;">in</div>
+                    </div>
+                </div>
+                
+                <!-- Specs -->
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Container</div>
+                        <div class="spec-value">Centered social share section</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Position</div>
+                        <div class="spec-value">Below tickets section<br>Padding left/right: 38px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Proportions</div>
+                        <div class="spec-value">Max-width: 400px<br>Center-aligned</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Spacing</div>
+                        <div class="spec-value">Section padding: 30px vertical, 38px horizontal<br>Icon gap: 20px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Responsive Breakpoint</div>
+                        <div class="spec-value">Same layout all sizes</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Animation/Behavior</div>
+                        <div class="spec-value">Icon hover: scale 1.1, color to cyan<br>Click: open share dialog for respective platform</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Notes</div>
+                        <div class="spec-value">Label: White text<br>Icons: f (Facebook), × (X/Twitter), in (LinkedIn)<br>Icon size: large (1.5rem)<br>Clickable links to social share</div>
+                    </div>
+                </div>
+                
+                <!-- Resources -->
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[COPY: share-label]</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 10: FOOTER -->
+        <div class="section">
+            <div class="section-label">Section 10: Footer</div>
+            <div class="section-content">
+                
+                <div class="note-box">
+                    <div class="note-title">Footer Reference</div>
+                    <div class="note-content">
+                        Footer is identical to homepage footer. See homepage-wireframe.html Section 8 for complete specifications.
+                    </div>
+                </div>
+                
+                <!-- Resources -->
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[COPY: footer] (see homepage-copy.md)</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

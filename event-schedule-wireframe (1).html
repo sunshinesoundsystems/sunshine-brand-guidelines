@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSS Event Schedule View - Wireframe Spec</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --yellow: #FCF766;
+            --cyan: #06C0E3;
+            --light-blue: #9CECFC;
+            --pink: #FA5281;
+            --black: #000000;
+            --white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--yellow);
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        
+        .page-title {
+            font-size: 1rem;
+            color: var(--cyan);
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .section {
+            background: rgba(6, 192, 227, 0.05);
+            border: 3px solid var(--cyan);
+            margin-bottom: 80px;
+            position: relative;
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+        
+        .section-label {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--black);
+            padding: 2px 15px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--yellow);
+        }
+        
+        .section-content {
+            padding: 40px 30px 30px 30px;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+        
+        .spec-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px;
+            border-left: 3px solid var(--yellow);
+            border-radius: 2px;
+        }
+        
+        .spec-label {
+            font-weight: 700;
+            color: var(--yellow);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        
+        .spec-value {
+            color: var(--white);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+        
+        .layout-wireframe {
+            border: 2px solid var(--pink);
+            margin: 20px 0;
+            min-height: 150px;
+            position: relative;
+            background: rgba(250, 82, 129, 0.05);
+            border-radius: 4px;
+        }
+        
+        .wire-label {
+            font-size: 0.85rem;
+            color: #000;
+            font-weight: 500;
+        }
+        
+        .resources {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(252, 247, 102, 0.1);
+            border: 1px solid var(--yellow);
+            border-radius: 4px;
+        }
+        
+        .resources-title {
+            font-weight: 700;
+            color: var(--yellow);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .resource-link {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 8px;
+            padding: 4px 10px;
+            background: rgba(252, 247, 102, 0.15);
+            border: 1px solid var(--yellow);
+            border-radius: 3px;
+            font-size: 0.8rem;
+            color: var(--yellow);
+            text-decoration: none;
+            font-family: monospace;
+        }
+        
+        .note-box {
+            background: rgba(250, 82, 129, 0.1);
+            border-left: 4px solid var(--pink);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .note-title {
+            font-weight: 700;
+            color: var(--pink);
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        .note-content {
+            color: var(--white);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sunshine Sound Systems</h1>
+        <div class="page-title">Event Schedule View - Technical Wireframe Specification</div>
+        
+        <!-- IMPORTANT NOTE -->
+        <div class="note-box">
+            <div class="note-title">⚠️ Wix Events Module Integration</div>
+            <div class="note-content">
+                Event schedule is managed entirely through Wix Events Module backend. Schedule entries, times, locations, and descriptions are dynamically populated. Configure in Wix Events → Schedule Settings. Styling and layout customization done in frontend CSS.
+            </div>
+        </div>
+        
+        <!-- SECTION 1: SCHEDULE HEADER -->
+        <div class="section">
+            <div class="section-label">Section 1: Schedule Header</div>
+            <div class="section-content">
+                
+                <!-- Layout Wireframe -->
+                <div class="layout-wireframe" style="padding: 40px; overflow: hidden; min-height: auto;">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div class="wire-label" style="color: white; font-size: 2rem; margin-bottom: 10px;">SCHEDULE</div>
+                        <div class="wire-label" style="color: white; font-size: 0.9rem;">SOLAR BEATS FESTIVAL | 22 feb, 12:00 – 24 feb, 16:00 Dénia, Dénia, Alicante, Spain</div>
+                    </div>
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div class="wire-label" style="color: white; border: 1px solid white; padding: 10px 20px; display: inline-block;">Get Tickets</div>
+                    </div>
+                    <div style="text-align: left;">
+                        <div class="wire-label" style="color: white;">Filter By: All Places ˅</div>
+                    </div>
+                </div>
+                
+                <!-- Specs -->
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Container</div>
+                        <div class="spec-value">Full-width container with padding</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Position</div>
+                        <div class="spec-value">Top of schedule page<br>Padding left/right: 38px<br>Padding top: 60px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Proportions</div>
+                        <div class="spec-value">Centered layout<br>Max-width: 800px<br>Auto margins for centering</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Spacing</div>
+                        <div class="spec-value">Section padding: 40px vertical<br>Title margin-bottom: 10px<br>Event info margin-bottom: 20px<br>Button margin-bottom: 20px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Responsive Breakpoint</div>
+                        <div class="spec-value">Desktop/Tablet: centered<br>Mobile: full-width, smaller text</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Animation/Behavior</div>
+                        <div class="spec-value">Get Tickets button: hover fills yellow<br>Filter dropdown: opens list of locations<br>Selecting filter: updates schedule list below</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Notes</div>
+                        <div class="spec-value">Title: Yellow (#FCF766), large, bold<br>Event info: White, smaller text<br>Get Tickets: outlined button, white border<br>Filter: left-aligned, dropdown selector</div>
+                    </div>
+                </div>
+                
+                <!-- Resources -->
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[COPY: schedule-heading]</span>
+                    <span class="resource-link">[DYNAMIC: Event name, dates, location]</span>
+                    <span class="resource-link">[COPY: cta-button]</span>
+                    <span class="resource-link">[COPY: filter-label]</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 2: SCHEDULE LIST -->
+        <div class="section">
+            <div class="section-label">Section 2: Schedule List (Day Groups)</div>
+            <div class="section-content">
+                
+                <!-- Layout Wireframe -->
+                <div class="layout-wireframe" style="padding: 20px; overflow: hidden; min-height: auto;">
+                    
+                    <!-- Day Header -->
+                    <div style="border-bottom: 2px solid var(--yellow); padding: 15px 0; margin-bottom: 20px;">
+                        <div class="wire-label" style="color: var(--yellow); font-size: 1.1rem;">dom, 22 feb</div>
+                    </div>
+                    
+                    <!-- Schedule Entry 1 -->
+                    <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 20px 0;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <div style="flex: 0 0 150px;">
+                                <div class="wire-label" style="color: white; font-size: 0.9rem;">12:00 - 13:00</div>
+                                <div class="wire-label" style="color: white; font-size: 0.75rem;">1 hora</div>
+                            </div>
+                            <div style="flex: 1; padding-left: 40px;">
+                                <div class="wire-label" style="color: white; font-size: 1rem; margin-bottom: 5px;">Gates Open</div>
+                                <div class="wire-label" style="color: white; font-size: 0.8rem; margin-bottom: 10px;">📍All Stages</div>
+                                <div class="wire-label" style="color: var(--cyan); font-size: 0.85rem; cursor: pointer;">Show More ˅</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Schedule Entry 2 -->
+                    <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 20px 0;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <div style="flex: 0 0 150px;">
+                                <div class="wire-label" style="color: white; font-size: 0.9rem;">14:00 - 18:00</div>
+                                <div class="wire-label" style="color: white; font-size: 0.75rem;">4 horas</div>
+                            </div>
+                            <div style="flex: 1; padding-left: 40px;">
+                                <div class="wire-label" style="color: white; font-size: 1rem; margin-bottom: 5px;">Opening Sessions</div>
+                                <div class="wire-label" style="color: white; font-size: 0.8rem; margin-bottom: 10px;">📍All Stages</div>
+                                <div class="wire-label" style="color: var(--cyan); font-size: 0.85rem; cursor: pointer;">Show More ˅</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- More entries... -->
+                    <div style="padding: 20px 0; text-align: center;">
+                        <div class="wire-label" style="color: white;">... more schedule entries ...</div>
+                    </div>
+                    
+                </div>
+                
+                <!-- Specs -->
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Container</div>
+                        <div class="spec-value">Full-width list container</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Position</div>
+                        <div class="spec-value">Below schedule header<br>Padding left/right: 38px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Proportions</div>
+                        <div class="spec-value">Max-width: 900px<br>Center-aligned<br>Time column: 150px fixed<br>Content column: flexible (remaining space)</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Spacing</div>
+                        <div class="spec-value">Day header padding: 15px vertical<br>Entry padding: 20px vertical<br>Gap between time and content: 40px<br>Border between entries: 1px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Responsive Breakpoint</div>
+                        <div class="spec-value">Desktop: two-column layout (time | content)<br>Mobile: stack vertically (time above content)</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Animation/Behavior</div>
+                        <div class="spec-value">Show More: expands to reveal full description<br>Collapsed by default<br>Click anywhere on entry: expand/collapse<br>Smooth expand/collapse animation</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Notes</div>
+                        <div class="spec-value">Day headers: Yellow (#FCF766), bold, larger text<br>Time: White, medium text<br>Duration: White, smaller, lighter<br>Entry title: White, bold<br>Location icon: 📍 + location name<br>Show More: Cyan (#06C0E3), clickable<br>Borders: subtle white/10% opacity</div>
+                    </div>
+                </div>
+                
+                <!-- Resources -->
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[DYNAMIC: Schedule entries from Wix Events]</span>
+                    <span class="resource-link">[COPY: show-more-label]</span>
+                </div>
+                
+                <div class="note-box">
+                    <div class="note-title">Schedule Entry Structure</div>
+                    <div class="note-content">
+                        Each schedule entry contains:<br><br>
+                        • Start Time - End Time (e.g., "12:00 - 13:00")<br>
+                        • Duration (e.g., "1 hora", "4 horas")<br>
+                        • Entry Title (e.g., "Gates Open", "Opening Sessions")<br>
+                        • Location/Stage (e.g., "📍All Stages", "📍Main Stage")<br>
+                        • Show More toggle (reveals full description when clicked)<br>
+                        • Optional: Artist names, links, images (when expanded)
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 3: EXPANDED SCHEDULE ENTRY -->
+        <div class="section">
+            <div class="section-label">Section 3: Expanded Schedule Entry (Show More State)</div>
+            <div class="section-content">
+                
+                <!-- Layout Wireframe -->
+                <div class="layout-wireframe" style="padding: 20px; overflow: hidden; min-height: auto;">
+                    <div style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 20px 0; background: rgba(255,255,255,0.02);">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <div style="flex: 0 0 150px;">
+                                <div class="wire-label" style="color: white; font-size: 0.9rem;">18:00 - 22:00</div>
+                                <div class="wire-label" style="color: white; font-size: 0.75rem;">4 horas</div>
+                            </div>
+                            <div style="flex: 1; padding-left: 40px;">
+                                <div class="wire-label" style="color: white; font-size: 1rem; margin-bottom: 5px;">Stage Worlds Come Online</div>
+                                <div class="wire-label" style="color: white; font-size: 0.8rem; margin-bottom: 15px;">📍All Stages</div>
+                                
+                                <!-- Expanded Content -->
+                                <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 4px; margin-bottom: 10px;">
+                                    <div class="wire-label" style="color: white; font-size: 0.85rem; line-height: 1.6;">
+                                        [Full description of the event/session. Can include multiple paragraphs, artist information, special notes, etc. This content is revealed when "Show More" is clicked.]
+                                    </div>
+                                </div>
+                                
+                                <div class="wire-label" style="color: var(--cyan); font-size: 0.85rem; cursor: pointer;">Show Less ˄</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Specs -->
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Expanded State Changes</div>
+                        <div class="spec-value">Background: slight highlight (white 2% opacity)<br>Description box: dark background, padding, rounded<br>Toggle text: "Show More ˅" → "Show Less ˄"</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Animation</div>
+                        <div class="spec-value">Smooth expand/collapse transition<br>Duration: 300ms ease<br>Height: auto (content-based)</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Content</div>
+                        <div class="spec-value">Full event description<br>Artist names and links (if applicable)<br>Additional details (age restrictions, special notes, etc.)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 4: FOOTER -->
+        <div class="section">
+            <div class="section-label">Section 4: Footer</div>
+            <div class="section-content">
+                
+                <div class="note-box">
+                    <div class="note-title">Footer Reference</div>
+                    <div class="note-content">
+                        Footer is identical to homepage footer. See homepage-wireframe.html Section 8 for complete specifications.
+                    </div>
+                </div>
+                
+                <!-- Resources -->
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[COPY: footer] (see homepage-copy.md)</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

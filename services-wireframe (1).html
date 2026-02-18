@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSS Services Page - Wireframe Spec</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --yellow: #FCF766;
+            --cyan: #06C0E3;
+            --light-blue: #9CECFC;
+            --pink: #FA5281;
+            --black: #000000;
+            --white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--yellow);
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        
+        .page-title {
+            font-size: 1rem;
+            color: var(--cyan);
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .section {
+            background: rgba(6, 192, 227, 0.05);
+            border: 3px solid var(--cyan);
+            margin-bottom: 80px;
+            position: relative;
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+        
+        .section-label {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--black);
+            padding: 2px 15px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--yellow);
+        }
+        
+        .section-content {
+            padding: 40px 30px 30px 30px;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+        
+        .spec-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px;
+            border-left: 3px solid var(--yellow);
+            border-radius: 2px;
+        }
+        
+        .spec-label {
+            font-weight: 700;
+            color: var(--yellow);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        
+        .spec-value {
+            color: var(--white);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+        
+        .layout-wireframe {
+            border: 2px solid var(--pink);
+            margin: 20px 0;
+            min-height: 150px;
+            position: relative;
+            background: rgba(250, 82, 129, 0.05);
+            border-radius: 4px;
+        }
+        
+        .wire-label {
+            font-size: 0.85rem;
+            color: #000;
+            font-weight: 500;
+        }
+        
+        .resources {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(252, 247, 102, 0.1);
+            border: 1px solid var(--yellow);
+            border-radius: 4px;
+        }
+        
+        .resources-title {
+            font-weight: 700;
+            color: var(--yellow);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .resource-link {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 8px;
+            padding: 4px 10px;
+            background: rgba(252, 247, 102, 0.15);
+            border: 1px solid var(--yellow);
+            border-radius: 3px;
+            font-size: 0.8rem;
+            color: var(--yellow);
+            text-decoration: none;
+            font-family: monospace;
+        }
+        
+        .note-box {
+            background: rgba(250, 82, 129, 0.1);
+            border-left: 4px solid var(--pink);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .note-title {
+            font-weight: 700;
+            color: var(--pink);
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        .note-content {
+            color: var(--white);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sunshine Sound Systems</h1>
+        <div class="page-title">Services Page - Technical Wireframe Specification</div>
+        
+        <!-- SECTION 1: HERO -->
+        <div class="section">
+            <div class="section-label">Section 1: Hero</div>
+            <div class="section-content">
+                
+                <!-- Layout Wireframe -->
+                <div class="layout-wireframe" style="padding: 0; overflow: hidden; min-height: auto; display: flex;">
+                    <!-- Left Column: Text -->
+                    <div style="flex: 0 0 50%; padding: 60px 38px; display: flex; flex-direction: column; justify-content: center;">
+                        <div class="wire-label" style="color: white; font-size: 3rem; line-height: 1.1; margin-bottom: 20px;">WHAT WE DO</div>
+                        <div class="wire-label" style="color: white; font-size: 0.9rem; margin-bottom: 30px;">Our services</div>
+                        <div class="wire-label" style="color: var(--cyan); font-size: 1.5rem; margin-bottom: 10px;">[Tagline line 1]</div>
+                        <div class="wire-label" style="color: var(--pink); font-size: 1.5rem; margin-bottom: 10px;">[Tagline line 2]</div>
+                        <div class="wire-label" style="color: var(--yellow); font-size: 1.5rem;">[Tagline line 3]</div>
+                    </div>
+                    <!-- Right Column: Image -->
+                    <div style="flex: 0 0 50%; background: #e0e0e0; display: flex; align-items: center; justify-content: center;">
+                        <div class="wire-label">[IMAGE: hero-services.jpg]</div>
+                    </div>
+                </div>
+                
+                <!-- Specs -->
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Container</div>
+                        <div class="spec-value">Full-width split layout</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Position</div>
+                        <div class="spec-value">Top of page, below header<br>No side padding (full-bleed image)</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Proportions</div>
+                        <div class="spec-value">50/50 split: text left | image right<br>Height: 60-70vh<br>Text padding left: 38px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Spacing</div>
+                        <div class="spec-value">Text column padding: 60px vertical, 38px left<br>Title margin-bottom: 20px<br>Tagline spacing: 10px between lines</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Responsive Breakpoint</div>
+                        <div class="spec-value">Desktop/Tablet: 50/50 split<br>Mobile: stack vertically (text above image)</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Animation/Behavior</div>
+                        <div class="spec-value">Optional: parallax on image<br>Text fades in on load</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Notes</div>
+                        <div class="spec-value">"WHAT WE DO": Yellow (#FCF766), huge, bold<br>"Our services": White, small<br>Taglines: Cyan, Pink, Yellow gradient effect<br>Image: crowd/DJ photo, high energy</div>
+                    </div>
+                </div>
+                
+                <!-- Resources -->
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[COPY: hero-section] (services-copy.md)</span>
+                    <span class="resource-link">[IMAGE: hero-services.jpg]</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 2: PROMO STRIPE -->
+        <div class="section">
+            <div class="section-label">Section 2: Decorative Promo Stripe</div>
+            <div class="section-content">
+                
+                <div class="layout-wireframe" style="padding: 20px; background: var(--yellow); min-height: 30px; overflow: hidden;">
+                    <div class="wire-label" style="text-align: center; font-weight: 700;">■ ■■■ ■ ■■ ■ ■■■■ ■ ■■■ ■■ ■ ■■ ■ ■■■ ■ ■■ ■</div>
+                </div>
+                
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Container</div>
+                        <div class="spec-value">Full-bleed stripe</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Position</div>
+                        <div class="spec-value">Below hero section<br>Full-width, no padding</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Proportions</div>
+                        <div class="spec-value">Width: 100%<br>Height: 20-30px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Animation/Behavior</div>
+                        <div class="spec-value">Optional: subtle scrolling pattern animation</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Notes</div>
+                        <div class="spec-value">Background: Yellow (#FCF766)<br>Pattern: simple geometric shapes<br>Decorative element only</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 3: BESPOKE BEATS INTRO -->
+        <div class="section">
+            <div class="section-label">Section 3: Bespoke Beats - Intro Text</div>
+            <div class="section-content">
+                
+                <div class="layout-wireframe" style="padding: 80px 38px; text-align: left; max-width: 900px; margin: 0 auto;">
+                    <div class="wire-label" style="color: var(--yellow); font-size: 2.5rem; margin-bottom: 30px;">BESPOKE BEATS</div>
+                    <div class="wire-label" style="color: white; font-size: 0.9rem;">[Body copy paragraph 1...]</div>
+                    <div class="wire-label" style="color: white; font-size: 0.9rem;">[Body copy paragraph 2...]</div>
+                </div>
+                
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Container</div>
+                        <div class="spec-value">Centered text block</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Position</div>
+                        <div class="spec-value">Below promo stripe<br>Padding left/right: 38px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Proportions</div>
+                        <div class="spec-value">Max-width: 900px<br>Center-aligned</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Spacing</div>
+                        <div class="spec-value">Section padding: 80px vertical, 38px horizontal<br>Heading margin-bottom: 30px<br>Paragraph gap: 20px</div>
+                    </div>
+                </div>
+                
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[COPY: bespoke-beats-intro] (services-copy.md)</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTIONS 4-7: SERVICE BLOCKS (alternating layout) -->
+        <div class="note-box">
+            <div class="note-title">Sections 4-7: Service Blocks Pattern</div>
+            <div class="note-content">
+                Sections 4-7 follow alternating image/content layout:<br>
+                • Section 4: Event DJ Services (image left, content right)<br>
+                • Section 5: In-House DJ Solutions (content left, image right)<br>
+                • Section 6: Co-Hosted Events (image left, content right)<br>
+                • Section 7: Private Events (content left, image right)<br><br>
+                
+                Each section contains:<br>
+                • Service Title (Yellow, 2rem)<br>
+                • Subheading (Cyan, 1.3rem)<br>
+                • Description paragraph<br>
+                • Features heading (Pink, 1.1rem)<br>
+                • Bulleted feature list<br>
+                • CTA button ("FIND OUT MORE")
+            </div>
+        </div>
+        
+        <!-- SECTION 4: EVENT DJ SERVICES -->
+        <div class="section">
+            <div class="section-label">Section 4: Event DJ Services</div>
+            <div class="section-content">
+                
+                <div class="layout-wireframe" style="padding: 60px 38px; display: flex; gap: 60px;">
+                    <div style="flex: 0 0 40%; background: #e0e0e0; aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center;">
+                        <div class="wire-label">[IMAGE: event-dj.jpg]</div>
+                    </div>
+                    <div style="flex: 1;">
+                        <div class="wire-label" style="color: var(--yellow); font-size: 1.5rem;">EVENT DJ SERVICES</div>
+                        <div class="wire-label" style="color: var(--cyan); font-size: 1rem;">MORE THAN MUSIC</div>
+                        <div class="wire-label" style="color: white; font-size: 0.85rem;">[Description paragraph...]</div>
+                        <div class="wire-label" style="color: var(--pink); font-size: 0.95rem;">HOW OUR DJs CRUSH IT</div>
+                        <div class="wire-label" style="color: white; font-size: 0.8rem;">• [Feature 1]<br>• [Feature 2]<br>• [Feature 3]...</div>
+                        <div class="wire-label" style="color: white; border: 1px solid white; padding: 10px 25px; display: inline-block; margin-top: 15px;">FIND OUT MORE</div>
+                    </div>
+                </div>
+                
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Container</div>
+                        <div class="spec-value">Two-column layout: image | content</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Proportions</div>
+                        <div class="spec-value">Image: 40% width, 4:5 aspect ratio<br>Content: 60% width<br>Gap between: 60px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Responsive Breakpoint</div>
+                        <div class="spec-value">Desktop: side-by-side<br>Tablet/Mobile: stack (image above content)</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Animation/Behavior</div>
+                        <div class="spec-value">Button hover: fills yellow, text turns black<br>Button click: opens Booking & Contact lightbox</div>
+                    </div>
+                </div>
+                
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[COPY: event-dj-services] (services-copy.md)</span>
+                    <span class="resource-link">[IMAGE: event-dj.jpg]</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 5: IN-HOUSE DJ SOLUTIONS -->
+        <div class="section">
+            <div class="section-label">Section 5: In-House DJ Solutions (Layout Reversed)</div>
+            <div class="section-content">
+                
+                <div class="note-box">
+                    <div class="note-content">
+                        Same structure as Section 4, but with reversed layout: content left | image right
+                    </div>
+                </div>
+                
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[COPY: in-house-dj-solutions] (services-copy.md)</span>
+                    <span class="resource-link">[IMAGE: in-house-dj.jpg]</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 6: CO-HOSTED EVENTS -->
+        <div class="section">
+            <div class="section-label">Section 6: Co-Hosted Events</div>
+            <div class="section-content">
+                
+                <div class="note-box">
+                    <div class="note-content">
+                        Same structure as Section 4: image left | content right
+                    </div>
+                </div>
+                
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[COPY: co-hosted-events] (services-copy.md)</span>
+                    <span class="resource-link">[IMAGE: co-hosted-events.jpg]</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 7: PRIVATE EVENTS -->
+        <div class="section">
+            <div class="section-label">Section 7: Private Events (Layout Reversed)</div>
+            <div class="section-content">
+                
+                <div class="note-box">
+                    <div class="note-content">
+                        Same structure as Section 5: content left | image right
+                    </div>
+                </div>
+                
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[COPY: private-events] (services-copy.md)</span>
+                    <span class="resource-link">[IMAGE: private-events.jpg]</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 8: SOUND SYSTEM RENTAL -->
+        <div class="section">
+            <div class="section-label">Section 8: Sound System Rental</div>
+            <div class="section-content">
+                
+                <div class="layout-wireframe" style="padding: 80px 38px; text-align: center;">
+                    <div class="wire-label" style="color: var(--cyan); font-size: 2rem; margin-bottom: 20px;">SOUND SYSTEM RENTAL</div>
+                    <div class="wire-label" style="color: white; font-size: 0.9rem; margin-bottom: 40px;">[Intro text...]</div>
+                    
+                    <!-- 2×2 equipment grid -->
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; max-width: 1000px; margin: 0 auto;">
+                        <!-- Card 1 -->
+                        <div style="text-align: center;">
+                            <div style="width: 100px; height: 100px; margin: 0 auto 20px; border: 3px solid var(--pink); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                <div class="wire-label" style="color: white;">[ICON]</div>
+                            </div>
+                            <div class="wire-label" style="color: var(--cyan); font-size: 1rem;">Sound</div>
+                            <div class="wire-label" style="color: white; font-size: 0.75rem;">[Equipment details...]</div>
+                            <div class="wire-label" style="border: 1px solid white; color: white; padding: 8px 20px; display: inline-block; margin-top: 15px;">REQUEST A QUOTE</div>
+                        </div>
+                        <!-- Cards 2-4: Same pattern -->
+                        <div class="wire-label" style="color: white;">[3 more equipment cards: DJ Equipment, Lighting, Setup & Support]</div>
+                    </div>
+                </div>
+                
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Container</div>
+                        <div class="spec-value">Centered layout with 2×2 grid</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Proportions</div>
+                        <div class="spec-value">Max-width: 1000px<br>Grid: 2×2 (4 equipment categories)<br>Icon boxes: 100×100px</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Responsive Breakpoint</div>
+                        <div class="spec-value">Desktop/Tablet: 2×2<br>Mobile: 1 column stack</div>
+                    </div>
+                </div>
+                
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[COPY: sound-system-rental] (services-copy.md)</span>
+                    <span class="resource-link">[ICONS: equipment icons (4)]</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 9: YOUR EVENT DREAM TEAM -->
+        <div class="section">
+            <div class="section-label">Section 9: Your Event Dream Team</div>
+            <div class="section-content">
+                
+                <div class="layout-wireframe" style="padding: 60px 38px; display: flex; gap: 60px;">
+                    <div style="flex: 1;">
+                        <div class="wire-label" style="color: var(--yellow); font-size: 2rem;">YOUR EVENT</div>
+                        <div class="wire-label" style="color: var(--cyan); font-size: 2rem;">DREAM TEAM</div>
+                        <div class="wire-label" style="color: white; font-size: 0.85rem;">[Description...]</div>
+                        <div class="wire-label" style="color: var(--pink); font-size: 1rem;">EXTENDED SERVICES</div>
+                        <div class="wire-label" style="color: white; font-size: 0.9rem;">YOU CAN COUNT ON</div>
+                        <div class="wire-label" style="color: white; font-size: 0.8rem;">• [Service 1]<br>• [Service 2]<br>• [Service 3]...</div>
+                        <div class="wire-label" style="border: 1px solid white; color: white; padding: 10px 25px; display: inline-block; margin-top: 15px;">DISCOVER</div>
+                    </div>
+                    <div style="flex: 0 0 50%; background: #e0e0e0; aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center;">
+                        <div class="wire-label">[IMAGE: dream-team.jpg]</div>
+                    </div>
+                </div>
+                
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[COPY: dream-team] (services-copy.md)</span>
+                    <span class="resource-link">[IMAGE: dream-team.jpg]</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 10: FOOTER -->
+        <div class="section">
+            <div class="section-label">Section 10: Newsletter + Footer</div>
+            <div class="section-content">
+                
+                <div class="note-box">
+                    <div class="note-title">Footer Reference</div>
+                    <div class="note-content">
+                        Footer is identical to homepage footer (newsletter signup + 3-column footer). See homepage-wireframe.html Section 8 for complete specifications.
+                    </div>
+                </div>
+                
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[COPY: footer] (homepage-copy.md)</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- IMPORTANT NOTE -->
+        <div class="note-box">
+            <div class="note-title">⚠️ All CTA Buttons Open Booking & Contact Lightbox</div>
+            <div class="note-content">
+                Every "FIND OUT MORE", "REQUEST A QUOTE", and "DISCOVER" button on this page opens the Booking & Contact lightbox/popup. See booking-contact-lightbox-wireframe.html for complete lightbox specifications.
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

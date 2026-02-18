@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSS Waitlist Email - Wireframe Spec</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --yellow: #FCF766;
+            --cyan: #06C0E3;
+            --light-blue: #9CECFC;
+            --pink: #FA5281;
+            --black: #000000;
+            --white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--yellow);
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        
+        .page-title {
+            font-size: 1rem;
+            color: var(--cyan);
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .section {
+            background: rgba(6, 192, 227, 0.05);
+            border: 3px solid var(--cyan);
+            margin-bottom: 80px;
+            position: relative;
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+        
+        .section-label {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--black);
+            padding: 2px 15px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--yellow);
+        }
+        
+        .section-content {
+            padding: 40px 30px 30px 30px;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+        
+        .spec-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px;
+            border-left: 3px solid var(--yellow);
+            border-radius: 2px;
+        }
+        
+        .spec-label {
+            font-weight: 700;
+            color: var(--yellow);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        
+        .spec-value {
+            color: var(--white);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+        
+        .layout-wireframe {
+            border: 2px solid var(--pink);
+            margin: 20px 0;
+            min-height: 150px;
+            position: relative;
+            background: rgba(250, 82, 129, 0.05);
+            border-radius: 4px;
+        }
+        
+        .wire-label {
+            font-size: 0.85rem;
+            color: #000;
+            font-weight: 500;
+        }
+        
+        .resources {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(252, 247, 102, 0.1);
+            border: 1px solid var(--yellow);
+            border-radius: 4px;
+        }
+        
+        .resources-title {
+            font-weight: 700;
+            color: var(--yellow);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .resource-link {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 8px;
+            padding: 4px 10px;
+            background: rgba(252, 247, 102, 0.15);
+            border: 1px solid var(--yellow);
+            border-radius: 3px;
+            font-size: 0.8rem;
+            color: var(--yellow);
+            text-decoration: none;
+            font-family: monospace;
+        }
+        
+        .note-box {
+            background: rgba(250, 82, 129, 0.1);
+            border-left: 4px solid var(--pink);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .note-title {
+            font-weight: 700;
+            color: var(--pink);
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        .note-content {
+            color: var(--white);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+        
+        .screenshot-placeholder {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px dashed var(--cyan);
+            padding: 60px 20px;
+            text-align: center;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        
+        .screenshot-placeholder img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--cyan);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Waitlist Email</h1>
+        <div class="page-title">Wireframe Specification Document</div>
+        
+        <!-- OVERVIEW -->
+        <div class="section">
+            <div class="section-label">Email Overview</div>
+            <div class="section-content">
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Email Type</div>
+                        <div class="spec-value">Waitlist Spot Available Notification</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Purpose</div>
+                        <div class="spec-value">Notify waitlisted users when spots open<br>Create urgency to claim spot</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Platform</div>
+                        <div class="spec-value">Wix Email Automations<br>Trigger: Ticket becomes available for waitlisted person</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Subject Line</div>
+                        <div class="spec-value">Spots have opened up for ${eventTitle}</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Preview Text</div>
+                        <div class="spec-value">Great News! A few spots have become available for ${eventTitle}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- VISUAL REFERENCE -->
+        <div class="section">
+            <div class="section-label">Visual Reference</div>
+            <div class="section-content">
+                <div class="screenshot-placeholder">
+                    <!-- Screenshot goes here -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- EMAIL STRUCTURE -->
+        <div class="section">
+            <div class="section-label">Email Layout & Styling</div>
+            <div class="section-content">
+                
+                <!-- Layout Wireframe -->
+                <div class="layout-wireframe" style="padding: 40px; background: var(--black); text-align: center;">
+                    
+                    <!-- Logo -->
+                    <div style="margin-bottom: 40px;">
+                        <div class="wire-label" style="color: var(--yellow); font-size: 0.9rem;">[SSS LOGO]</div>
+                    </div>
+                    
+                    <!-- Event Photo -->
+                    <div style="margin-bottom: 30px; border: 2px solid rgba(255,255,255,0.2); padding: 80px 20px; background: rgba(255,255,255,0.05);">
+                        <div class="wire-label" style="color: rgba(255,255,255,0.5); font-size: 0.9rem;">[EVENT PHOTO - ${eventImageUrl}]</div>
+                    </div>
+                    
+                    <!-- Headline -->
+                    <div style="margin-bottom: 30px;">
+                        <div class="wire-label" style="color: var(--yellow); font-size: 2.5rem; font-weight: 900; text-transform: uppercase;">GREAT NEWS!</div>
+                    </div>
+                    
+                    <!-- Subheadline -->
+                    <div style="margin-bottom: 30px;">
+                        <div class="wire-label" style="color: white; font-size: 1.5rem; font-weight: 400;">A Few Spots Just Opened for ${eventTitle}.</div>
+                    </div>
+                    
+                    <!-- Body Content -->
+                    <div style="max-width: 500px; margin: 0 auto 40px; text-align: left;">
+                        <div class="wire-label" style="color: white; font-size: 1rem; margin-bottom: 30px;">Space has opened up for the next ${eventTitle}.</div>
+                        
+                        <div class="wire-label" style="color: white; font-size: 1rem; margin-bottom: 30px;">We wanted to give our waitlist crew the first chance to claim a spot before it goes public. If you're still up for a great time filled with beats, dancing, and excellent people, now's your moment.</div>
+                        
+                        <!-- Event Details -->
+                        <div style="margin-bottom: 30px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 4px;">
+                            <div class="wire-label" style="color: white; font-size: 0.95rem; margin-bottom: 5px;">${eventTitle}</div>
+                            <div class="wire-label" style="color: white; font-size: 0.95rem; margin-bottom: 5px;">${eventDate}</div>
+                            <div class="wire-label" style="color: white; font-size: 0.95rem;">${eventLocation}</div>
+                        </div>
+                        
+                        <div class="wire-label" style="color: white; font-size: 1rem; margin-bottom: 30px;">Claim your spot to secure your place.</div>
+                        
+                        <div class="wire-label" style="color: white; font-size: 1rem; line-height: 1.6;">Stay Golden,<br>Sunshine Sound Systems</div>
+                    </div>
+                    
+                    <!-- CTA Button -->
+                    <div style="margin-bottom: 20px;">
+                        <div class="wire-label" style="background: var(--yellow); color: black; padding: 14px 40px; font-size: 1rem; font-weight: 700; display: inline-block; text-transform: uppercase;">GRAB YOUR TICKETS</div>
+                    </div>
+                    
+                    <!-- Calendar Link -->
+                    <div style="margin-bottom: 50px;">
+                        <div class="wire-label" style="color: white; font-size: 0.9rem; text-decoration: underline;">${calendarLinkUrl}</div>
+                    </div>
+                    
+                    <!-- Footer -->
+                    <div style="padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1);">
+                        <div class="wire-label" style="color: white; font-size: 0.85rem; margin-bottom: 10px;">Share on social</div>
+                        <div style="margin-bottom: 20px;">
+                            <span class="wire-label" style="color: white; margin: 0 8px; font-size: 1.2rem;">f</span>
+                            <span class="wire-label" style="color: white; margin: 0 8px; font-size: 1.2rem;">𝕏</span>
+                            <span class="wire-label" style="color: white; margin: 0 8px; font-size: 1.2rem;">P</span>
+                        </div>
+                        <div class="wire-label" style="color: white; font-size: 0.85rem; text-decoration: underline;">For more sunny events check out our website →</div>
+                    </div>
+                    
+                </div>
+                
+                <!-- Specs -->
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">Email Width</div>
+                        <div class="spec-value">600px max (email-safe standard)<br>Responsive: 100% on mobile</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Background</div>
+                        <div class="spec-value">Solid black (#000000)</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Alignment</div>
+                        <div class="spec-value">Center-aligned layout<br>Body text left-aligned within container</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Padding</div>
+                        <div class="spec-value">Container: 40px (desktop), 20px (mobile)<br>Element spacing: 20-40px between sections</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Typography</div>
+                        <div class="spec-value">Headline: Fjalla One, 48-56px, yellow<br>Subheadline: Open Sans, 24-28px, white<br>Body: Open Sans, 16-18px, white<br>Button: 16px bold, uppercase, black on yellow</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Colors</div>
+                        <div class="spec-value">Yellow: #FCF766 (headline, button)<br>Black: #000000 (background)<br>White: #FFFFFF (body text)</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Dynamic Fields</div>
+                        <div class="spec-value">${eventTitle} – Event name<br>${eventDate} – Event date<br>${eventLocation} – Event location<br>${eventImageUrl} – Event photo<br>${calendarLinkUrl} – Add to calendar link<br>Ticket link – Ticket purchase URL</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Urgency Elements</div>
+                        <div class="spec-value">"Great News!" – Exciting headline<br>"First chance" – Exclusivity language<br>"Now's your moment" – Call to action<br>Prominent CTA button</div>
+                    </div>
+                </div>
+                
+                <!-- Resources -->
+                <div class="resources">
+                    <div class="resources-title">Resources</div>
+                    <span class="resource-link">[IMAGE: SSS-logo-gold.png]</span>
+                    <span class="resource-link">[IMAGE: Event photo from Wix]</span>
+                    <span class="resource-link">[COPY: waitlist-email-copy.md]</span>
+                </div>
+                
+                <div class="note-box">
+                    <div class="note-title">Use Cases</div>
+                    <div class="note-content">
+                        • Waitlisted person when spot becomes available<br>
+                        • Time-sensitive notification<br>
+                        • Triggered automatically by Wix when capacity opens<br>
+                        • VIP treatment for waitlist members
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
